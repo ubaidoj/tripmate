@@ -1,0 +1,41 @@
+[
+  {
+    "name": "Hotel Paradise",
+    "image": "assets/hotels/serena_hotel.jpg",
+    "location": "123 Paradise Road, Cityville",
+    "contact": "+1234567890",
+    "rating": 4.5,
+    "rooms": [
+      {
+        "type": "Deluxe Room",
+        "price": 120,
+        "description": "A spacious room with a king-size bed, air conditioning, and a private balcony."
+      },
+      {
+        "type": "Standard Room",
+        "price": 80,
+        "description": "A comfortable room with a queen-size bed and all essential amenities."
+      }
+    ]
+  },
+  {
+    "name": "Ocean View Hotel",
+    "image": "assets/hotels/islamabad_marriott_hotel.jpg",
+    "location": "456 Beachfront Ave, Ocean City",
+    "contact": "+0987654321",
+    "rating": 4.0,
+    "rooms": [
+      {
+        "type": "Ocean View Suite",
+        "price": 200,
+        "description": "A luxury suite with a breathtaking view of the ocean, featuring a king-size bed and private Jacuzzi."
+      },
+      {
+        "type": "Economy Room",
+        "price": 60,
+        "description": "A cozy room with basic amenities for a budget-friendly stay."
+      }
+    ]
+  }
+  
+]
