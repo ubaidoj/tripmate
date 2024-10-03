@@ -1,41 +1,909 @@
 [
   {
-    "name": "Hotel Paradise",
+    "name": "Serena Hotel",
     "image": "assets/hotels/serena_hotel.jpg",
-    "location": "123 Paradise Road, Cityville",
-    "contact": "+1234567890",
-    "rating": 4.5,
+    "location": "Khayaban-e-Suhrwardy Rd, opposite Convention Centre, G-5/1 G-5, Islamabad",
+    "contact": "(051) 111 133 133",
+    "rating": 4.6,
     "rooms": [
       {
         "type": "Deluxe Room",
-        "price": 120,
-        "description": "A spacious room with a king-size bed, air conditioning, and a private balcony."
+        "price": "68386",
+        "description": "A luxurious room with elegant décor, modern amenities, and a city view."
       },
       {
-        "type": "Standard Room",
-        "price": 80,
-        "description": "A comfortable room with a queen-size bed and all essential amenities."
+          "type": "Executive Room",
+          "price": "11834",
+          "description": "A comfortable room with a queen-size bed and all essential amenities."
+        },
+      {
+        "type": "Executive Suite",
+        "price": "Rs. 118,634",
+        "description": "A spacious suite with a separate living area and king-size bed, ideal for business travelers."
+      },
+      {
+        "type": "Presidential Suite",
+        "price": "Rs. 558,276",
+        "description": "An opulent suite with a separate dining room, large living area, and lavish furnishings."
       }
     ]
   },
   {
-    "name": "Ocean View Hotel",
-    "image": "assets/hotels/islamabad_marriott_hotel.jpg",
-    "location": "456 Beachfront Ave, Ocean City",
-    "contact": "+0987654321",
+      "name": "Islamabad Hotel",
+      "image": "assets/hotels/islamabad_hotel.jpg",
+      "location": "Main Civic Centre, G6 Municipal Rd, G-6 Markaz G 6 Markaz G-6, Islamabad",
+      "contact": "(051) 2827311",
+      "rating": 4.1,
+      "rooms": [
+        {
+          "type": "STANDARD ROOMS",
+          "rooms": [
+              {
+                  "type": "SINGLE STANDARD ROOM",
+                  "price": "Rs. 40,000",
+                  "description": "A Single Standard room with one bed for one person"
+              },
+              {
+                  "type": "DOUBLE STANDARD ROOM",
+                  "price": "Rs. 43,000",
+                  "description": "A room for a short stay and a starting point on foot to discover Islamabad"
+              }
+          ]
+        },
+        {
+          "type": "DELUXE ROOMS",
+          "rooms": [
+              {
+                  "type": "DELUXE SINGLE ROOM",
+                  "price": "Rs. 45,000",
+                  "description": "A Deluxe Single Room with one bed for one person. Suitable for one person and a short stay in Islamabad"
+              },
+              {
+                  "type": "DELUXE DOUBLE ROOM",
+                  "price": "Rs. 48,000",
+                  "description": "Deluxe Double Room. A room for a short stay and a starting point on foot to discover Islamabad"
+              }
+          ]
+        },
+        {
+          "type": "SUITE ROOMS",
+          "rooms": [
+              {
+                  "type": "STANDARD SUITE",
+                  "price": "Rs. 80,000",
+                  "description": "Truly unique in Islamabad. A Standard suite with a king size bed"
+              },
+              {
+                  "type": "HONEYMOON SUITE",
+                  "price": "Rs. 48,000",
+                  "description": "Complete with all the in-room amenities of a 4* hotel :free wireless access, air conditioning, with a shower"
+              },
+              {
+                  "type": "DELUXE SUITE",
+                  "price": "Rs. 110,000",
+                  "description": "A room with its own independent living room decorated with joy textiles for their charm and furnished with modern comfort in mind"
+              }
+          ]
+        }
+      ]
+  },
+  {
+      "name": "Islamabad Marriott Hotel",
+      "image": "assets/hotels/islamabad_marriott_hotel.jpg",
+      "location": "Agha Khan Rd, F-5/1 F-5, Islamabad",
+      "contact": "(051) 2826121",
+      "rating": 4.6,
+      "rooms": [
+        {
+          "type": "Deluxe King",
+          "price": "Rs. 54,880",
+          "description": "Deluxe King Room, 1 King, Mini fridge, 348sqft/31sqm, Wireless internet, complimentary, Wired internet, for a fee, Coffee/tea maker"
+        },
+        {
+            "type": "Executive King",
+            "price": "Rs. 64,680",
+            "description": "Executive King Room, 1 King, Mini fridge, 348sqft/31sqm, Wireless internet, complimentary, Wired internet, for a fee, Coffee/tea maker"
+          },
+        {
+          "type": "Deluxe Twin",
+          "price": "Rs. 64,680",
+          "description": "Deluxe Twin Room, 2 Twin, Mini fridge, 348sqft/31sqm, Wireless internet, complimentary, Wired internet, for a fee, Coffee/tea maker"
+        },
+        {
+          "type": "Executive Twin",
+          "price": "Rs. 74,480",
+          "description": "Executive Twin Room, 2 Twin, Mini fridge, 348sqft/31sqm, Wireless internet, complimentary, Wired internet, for a fee, Coffee/tea maker"
+        },
+        {
+          "type": "Executive Suite",
+          "price": "Rs. 122,500",
+          "description": "Executive Suite, 1 King, Mini fridge, 724sqft/65sqm, Living/sitting area, Separate living room, Wireless internet, complimentary, Wired internet, for a fee, Coffee/tea maker"
+        },
+        {
+          "type": "Royal Suite",
+          "price": "Rs. 220,500",
+          "description": "Royal Suite, 1 King, Mini fridge, 1749sqft/157sqm, Living/sitting area, Dining area, Separate living room, Wireless internet, complimentary, Wired internet, for a fee, Coffee/tea maker"
+        },
+        {
+          "type": "Presidential Suite",
+          "price": "Rs. 411,600",
+          "description": "Presidential Suite, 1 King, Bathrooms: 2, Mini fridge, 3476sqft/313sqm, Living/sitting area, Dining area, Separate dining room, Separate living room, Wireless internet, complimentary, Wired internet, for a fee, Coffee/tea maker"
+        }
+      ]
+  },
+  {
+      "name": "Luxus Hunza Attabad Lake Resort",
+      "image": "assets/hotels/luxus_hunza_attabad_lake_resort.jpg",
+      "location": "Hunza, Gojal, Aina Abad Attabad",
+      "contact": "0343 5151913",
+      "rating": 4.2,
+      "rooms": [
+        {
+          "type": "Royal Suite",
+          "price": "Rs. 55,000",
+          "description": "A luxurious room with elegant décor, modern amenities, and lake view."
+        },
+        {
+            "type": "Family Room",
+            "price": "Rs. 42,000",
+            "description": "A comfortable room with all essential amenities, and a lake view."
+          },
+        {
+          "type": "Deluxe Plus",
+          "price": "Rs. 35,000",
+          "description": "The best room with complimentory Breakfast, tea setup, well stocked mini bar, telephone and Safe locker and many more."
+        },
+        {
+          "type": "Presidential Suite",
+          "price": "Rs. 65,000",
+          "description": "Walk in shower, running hot water, Free wifi, Dinning Area, Heating and Cooling AC and many more."
+        }
+      ]
+  },
+  {
+      "name": "Hilton Suites Gulberg Lahore",
+      "image": "assets/hotels/hilton_suites_gulberg_lahore.jpg",
+      "location": "89 A-B II, Mian Mehmood Ali Kasoori Rd, near Hussain Chowk, Block B2 Gulberg III, Lahore",
+      "contact": "0323 8000375",
+      "rating": 4.7,
+      "rooms": [
+        {
+          "type": "AQUARIUM ROOMS",
+          "price": "Rs. 18,000",
+          "description": "Offering unique accommodations that literally let you sleep with the fishes."
+        },
+        {
+            "type": "DELUXE ROOMS",
+            "price": "Rs. 16,000",
+            "description": "Our Deluxe Rooms provide a glimpse of the extraordinary Hilton legacy while simultaneously providing all of the modern comforts."
+          },
+        {
+          "type": "EXECUTIVE SUITES",
+          "price": "Rs. 25,000",
+          "description": "These Suites blend contemporary interior design with the functionality."
+        },
+        {
+          "type": "ROYAL SUITES",
+          "price": "Rs. 20,000",
+          "description": "See what a difference a stay makes at our Royal Suites. Spacious, graceful and contemporary."
+        },
+        {
+          "type": "PRESIDENTIAL SUITE",
+          "price": "Rs. 45,000",
+          "description": "Serenity that you deserve at our Presidential Suite!."
+        }
+      ]
+  },
+  {
+      "name": "Pearl Continental Hotel, Lahore",
+      "image": "assets/hotels/pearl_continental_hotel_lahore.jpg",
+      "location": "Shahrah-e-Quaid-e-Azam, Garhi Shahu, Lahore, Punjab",
+      "contact": "(042) 111 505 505",
+      "rating": 4.4,
+      "rooms": [
+        {
+          "type": "STANDARD",
+          "price": "Rs. 33,648",
+          "description": "Combining a neutral-colour palette with chic furnishings, the compact-size Standard Room welcomes you to a pleasant stay."
+        },
+        {
+            "type": "DELUXE",
+            "price": "Rs. 39,256",
+            "description": "Inspired by the rich cultural heritage of Lahore, the spacious Deluxe Room furnishes modern furniture in earthen tones."
+          },
+        {
+          "type": "EXECUTIVE",
+          "price": "Rs. 42,060",
+          "description": "These Suites blend contemporary interior design with the functionalityFurnishing chic and contemporary décor, the Executive Room offers spacious interiors designed to your comfort."
+        },
+        {
+          "type": "BUSINESS SUITE",
+          "price": "Rs. 50,472",
+          "description": "Equipping you to meet all your business needs, the suite furnishes a workspace connecting to high-speed internet and surroundings that ensure optimum focus and productivity."
+        },
+        {
+          "type": "PRESIDENTIAL SUITE",
+          "price": "Rs. 196,000",
+          "description": "Luxuriate yourself in our elegantly-designed Presidential Suite, and unwind in the master bedroom that offers views of the cityscape."
+        }
+      ]
+  },
+  {
+      "name": "Pearl-Continental Hotel Bhurban",
+      "image": "assets/hotels/pearl_continentalk_hotel_bhurban.jpg",
+      "location": "Hotel Rd, Bhurban, Rawalpindi, Khyber Pakhtunkhwa",
+      "contact": "(051) 3355700",
+      "rating": 4.5,
+      "rooms": [
+        {
+          "type": "STANDARD",
+          "price": "Rs. 47,668",
+          "description": "With its warm and cozy interior, the Standard Room welcomes guests to a relaxed and comfortable stay."
+        },
+        {
+            "type": "DELUXE",
+            "price": "Rs. 53,276",
+            "description": "Draped in rich hues, the space furnishes character with an old-school charm offering stunning views of the snow-clad Himalayan Mountains."
+          }
+      ]
+  },
+  {
+      "name": "Royal Swiss Hotel",
+      "image": "assets/hotels/royal_swiss_hotel.jpg",
+      "location": "opposite Cargo Complex, Allama Iqbal International Airport, Lahore, Punjab",
+      "contact": "(042) 111 000 329",
+      "rating": 4.4,
+      "rooms": [
+        {
+          "type": "Deluxe Room",
+          "price": "Rs. 33,648",
+          "description": "The 37sqm Deluxe Room has a modern décor and finishes with either Airport or Courtyard View."
+        },
+        {
+            "type": "Executive Suite",
+            "price": "Rs. 64,008",
+            "description": "Available with king size bed. Guests staying in the Executive Suites also have complimentary access to the Swiss-Select Lounge."
+          },
+        {
+          "type": "Diplomat Suite",
+          "price": "Rs. 71,954",
+          "description": "The Diplomat Suite have one bed room with king bed and separate sitting area. Covered area is 92 sqm with a modern décor and finishes."
+        }
+      ]
+  },
+  {
+    "name": "Mövenpick Karachi",
+    "image": "assets/hotels/movenpick_karachi.jpg",
+    "location": "Club Rd, Civil Lines Karachi, Karachi City, Sindh",
+    "contact": "(021) 35633333",
+    "rating": 4.5,
+    "rooms": [
+      {
+        "type": "Classic Twin",
+        "price": "Rs. 64,602",
+        "description": "This Room offers city view, twin beds, a bathtub, work desk, minibar, and free wifi."
+      },
+      {
+        "type": "Deluxe King",
+        "price": "Rs. 70,375",
+        "description": "This Room offers city views, a balcony, king bed, free wifi, and a lawndary allowance."
+      },
+      {
+        "type": "Executive King",
+        "price": "Rs. 80,392",
+        "description": "This Room offers city views, a balcony, king bed, free lounge access and breakfast."
+      },
+      {
+        "type": "Premier King",
+        "price": "Rs. 90,440",
+        "description": "This Room offers city views, a balcony, king bed, free lounge access and breakfast."
+      },
+      {
+        "type": "Junior Suite",
+        "price": "Rs. 109,104",
+        "description": "The junior suite offers living area king bed and benefits like launge access."
+      },
+      {
+        "type": "Family Connecting Rooms",
+        "price": "Rs. 120,588",
+        "description": "The family connecting rooms provide perfect space for a family of four or six."
+      },
+      {
+        "type": "Presidential Suite",
+        "price": "Rs. 215,336",
+        "description": "This suite offers a kitchenette, balcony, king bed, city views and various benefits."
+      },
+      {
+        "type": "Royal Suite Two Bedroom",
+        "price": "Rs. 237,181",
+        "description": "This suite has city views, two bedrooms, a living area, lounge access and benefits."
+      }
+    ]
+  },
+  {
+    "name": "Hard Rock Hunza-High Rock Hunza Resort & Villas",
+    "image": "assets/hotels/hard_rock_hunza_high_rock_hunza_resort_and_villas.jpg",
+    "location": "Eagles nest view point Duiker Altit Hunza, Hunza Valley,",
+    "contact": "+925813457179, +923437378887",
+    "rating": 4.5,
+    "rooms": [
+      {
+        "type": "Deluxe (Hunza View) (AC)",
+        "price": "Rs. 30,000",
+        "description": "Deluxe Room (Hunza View with private balcony , AC) -Best for families and Honeymooners (2 persons ). -Room cost includes ( 2 persons breakfast )."
+      },
+      {
+        "type": "1 Bedroom Villa ( Hunza View) (AC)",
+        "price": "Rs. 40,000",
+        "description": "1 Bedroom Villa (Hunza View with Private Balcony ,Invertor AC) Best for families and Honeymooners (2 persons ) Room cost includes ( 2 persons breakfast )."
+      },
+      {
+        "type": "Honeymoon Suite Jaccuzzi ( Hunza view)",
+        "price": "Rs. 60,000",
+        "description": "Honeymoon suite with Jacuzzi (Hunza View AC) Best for families and Honeymooners (2 persons ) with Valley Facing Jacuzzi Fruit Basket."
+      },
+      {
+        "type": "Presidential suite with Jacuzzi (AC)",
+        "price": "Rs. 65,000",
+        "description": "Presidential Suite with Jacuzzi (Hunza View AC) Best for families and Honeymooners (2 persons )."
+      },
+      {
+        "type": "Royal Suite ( 2 Bed Room) With Jacuzzi",
+        "price": "Rs. 90,000",
+        "description": "Royal Suite( 2 Bedroom) with Jacuzzi (Hunza View AC) Best for families (4 persons ) with Valley Facing Jacuzzi Fruit Basket."
+      }
+    ]
+  },
+  {
+    "name": "Mughal Mahal Hotel",
+    "image": "assets/hotels/mughal_mahal_hotel.jpg",
+    "location": "Chan Da Qila, GT Rd, Gujranwala",
+    "contact": "(055) 4299107",
+    "rating": 4.2,
+    "rooms": [
+      {
+        "type": "Deluxe King Room",
+        "price": "Rs. 14,000 + Tax",
+        "description": "Deluxe king room features 1 king bed with plus bedding, a spacious work  desk with garden view."
+      },
+      {
+        "type": "Executive Room",
+        "price": "Rs. 16,000 + Tax",
+        "description": "Executive room features 1 king bed with plus bedding, a spacious work  desk with city view."
+      },
+      {
+        "type": "Executive Suite",
+        "price": "Rs. 20,000 + Tax",
+        "description": "Executive suite features spacious 1 king bed with plus bedding and work  desk extra room sitting area with garden view."
+      },
+      {
+        "type": "Premier Suite",
+        "price": "Rs. 22,000 + Tax",
+        "description": "Premier suite features spacious 1 king bed with plus bedding and work  desk extra room sitting area with garden view."
+      }
+    ]
+  },
+  {
+    "name": "The Roomy Lodge",
+    "image": "assets/hotels/the_roomy_lodge.jpg",
+    "location": "Upper Jhika Gali Road, Murree",
+    "contact": "0311 1444100",
+    "rating": 4.5,
+    "rooms": [
+      {
+        "type": "STANDARD DOUBLE/TWIN BED",
+        "price": "Rs. 10,000",
+        "description": "A standard room, with all standard benedfits."
+      },
+      {
+        "type": "DELUXE DOUBLE/TWIN BED",
+        "price": "Rs. 12,000",
+        "description": "a room with benefits like free breakfast, tea setup, free wifi, Bathroom amenities."
+      },
+      {
+        "type": "EXECUTIVE DOUBLE BED",
+        "price": "Rs. 14,000",
+        "description": "a room with benefits like free breakfast, tea setup, free wifi, Bathroom amenities, AC and windows."
+      }
+    ]
+  },
+  {
+    "name": "Rachna Pearl Hotel",
+    "image": "assets/hotels/rachna_pearl_hotel.jpg",
+    "location": "Wazirabad Rd، near Aziz Cross Flyover, Industrial Estate 1, Gujranwala, Punjab",
+    "contact": "(055) 3732550",
     "rating": 4.0,
     "rooms": [
       {
-        "type": "Ocean View Suite",
-        "price": 200,
-        "description": "A luxury suite with a breathtaking view of the ocean, featuring a king-size bed and private Jacuzzi."
+        "type": "Deluxe Double Room",
+        "price": "Rs. 13,870",
+        "description": "Free WiFi, Free breakfast, Free self parking, Sleeps 2, 1 Double Bed."
       },
       {
-        "type": "Economy Room",
-        "price": 60,
-        "description": "A cozy room with basic amenities for a budget-friendly stay."
+          "type": "Executive Double Room",
+          "price": "Rs. 16,089",
+          "description": "Free WiFi, Free breakfast, Free self parking, Sleeps 2, 1 Double Bed."
+      }
+    ]
+  },
+  {
+    "name": "Burj Al Swat Hotel",
+    "image": "assets/hotels/burj_al_swat_hotel.jpg",
+    "location": "Bahrain Rd, opposite to Fiza Gut Park, Mingora, Swat, Khyber Pakhtunkhwa",
+    "contact": "(0946) 812601",
+    "rating": 4.3,
+    "rooms": [
+      {
+        "type": "Standard King Room",
+        "price": "Rs. 15,000",
+        "description": "Balcony with various views like gardon, lake, mountain, pool and city view, on extra large double-bed."
+      },
+      {
+        "type": "Twin Room",
+        "price": "Rs. 16,000",
+        "description": "This air-conditioned twin room includes a private bathroom and a terrace with garden views, offers 2 beds."
+      },
+      {
+        "type": "Superior King Room",
+        "price": "Rs. 45,000",
+        "description": "This room's special feature is the hot tub, others are air conditioning, a terrace, lake views and a private bathroom with shower, offers 1 bed."
+      },
+      {
+        "type": "Deluxe Double Room",
+        "price": "Rs. 20,000",
+        "description": "This room's special feature is the hot tub, others are air conditioning, a terrace, lake views and a private bathroom with shower, offers 1 bed."
+      }
+    ]
+  },
+  {
+    "name": "Karachi Marriott Hotel",
+    "image": "assets/hotels/karachi_marriott_hotel.jpg",
+    "location": "9 Abdullah Haroon Rd, Civil Lines Karachi, Karachi City, Sindh",
+    "contact": "(021) 35680111",
+    "rating": 4.4,
+    "rooms": [
+      {
+        "type": "Deluxe King, Guest room, 1 King",
+        "price": "Rs. 44,462",
+        "description": "Air-conditioned room features a flat-screen satellite TV, electric kettle and minibar."
+      },
+      {
+        "type": "Deluxe Twin, Guest room, 2 Twin/Single Bed(s)",
+        "price": "Rs. 44,462",
+        "description": "The fireplace is the standout feature of this twin room. Offering free toiletries and bathrobes, this twin room includes a private bathroom with a shower."
+      },
+      {
+        "type": "Executive King, Executive lounge access, Guest room",
+        "price": "Rs. 50,020",
+        "description": "The fireplace is a top feature of this double room. Featuring free toiletries and bathrobes, this double room includes a private bathroom with a shower."
+      },
+      {
+        "type": "Deluxe Suite, Executive lounge access, 1 Bedroom Suite",
+        "price": "Rs. 105,598",
+        "description": "The fireplace is the standout feature of this suite. Featuring free toiletries and bathrobes, this suite includes a private bathroom with a bath, a shower and a hairdryer."
+      }
+    ]
+  },
+  {
+    "name": "The Nishat Hotel",
+    "image": "assets/hotels/the_nishat_hotel.jpg",
+    "location": "1 Abdul Haque Rd, Block G1 Block G 1 Phase 1 Johar Town, Lahore, Punjab",
+    "contact": "(042) 111 646 835",
+    "rating": 4.4,
+    "rooms": [
+      {
+        "type": "Deluxe room",
+        "price": "Rs. 31,268",
+        "description": "Air conditioning, Minibar, Free WiFi, Free toiletries, Desk, Slippers, Telephone, Hairdryer, Bottle of water."
+      },
+      {
+        "type": "Twin Room",
+        "price": "Rs. 45,000",
+        "description": "Providing free toiletries and bathrobes, this twin room includes a private bathroom with a walk-in shower."
+      },
+      {
+        "type": "Executive Room",
+        "price": "Rs. 45,000",
+        "description": "This double room features a minibar and tile/marble floor."
+      },
+      {
+        "type": "Platinum Room",
+        "price": "Rs. 50,000",
+        "description": "The spacious double room offers air conditioning, soundproof walls, a minibar, a tea and coffee maker."
+      },
+      {
+        "type": "Royal Suite",
+        "price": "Rs. 95,000",
+        "description": "This suite features air conditioning, soundproof walls, chocolate for guests. The unit offers 1 bed."
+      }
+    ]
+  },
+  {
+    "name": "Holiday Grand Resort Bhurban",
+    "image": "assets/hotels/holiday_grand_resort_bhurban.jpg",
+    "location": "toll, Hotel Road, 100 meters from, next to PC Hotel, Bhurban",
+    "contact": "(051) 3355034",
+    "rating": 4.0,
+    "rooms": [
+      {
+        "type": "Standard Room",
+        "price": "Rs. 15,000+Tax",
+        "description": "A Twin bed, bathroom, hairDryer, iron and board on demand, wifi available."
+      },
+      {
+        "type": "Club Rooms",
+        "price": "Rs. 17,500+Tax",
+        "description": "Valley view, king bed, wifi, hair Dryer and iron and board on demand, AC and heating system."
+      },
+      {
+        "type": "Family Room",
+        "price": "Rs. 23,500+Tax",
+        "description": "Three Queen beds with lobby view (non-valley side), hair Dryer and iron and board on demand, AC and heating system."
+      },
+      {
+        "type": "Junior Suite",
+        "price": "Rs.  25,500+Tax",
+        "description": "King bed sitting arrangments, washroom with separate shower area, Valley view, balcony."
+      },
+      {
+        "type": "Royal Suite",
+        "price": "Rs. 30,500+Tax",
+        "description": "King bed sitting arrangments, washroom with separate shower area, Valley view, balcony."
+      },
+      {
+        "type": "Executive Suite",
+        "price": "Rs. 40,500+Tax",
+        "description": "King bed sitting arrangments, washroom with separate shower area, Valley view, balcony."
+      },
+      {
+        "type": "Presidential Suite",
+        "price": "Rs. 50,500+Tax",
+        "description": "King bed sitting arrangments, washroom with separate shower area, Valley view, balcony."
+      },
+      {
+        "type": "Premium Grand",
+        "price": "Rs. 20,500+Tax",
+        "description": "King bed sitting arrangments, washroom with separate shower area, Valley view, balcony."
+      }
+    ]
+  },
+  {
+    "name": "Hotel Javson",
+    "image": "assets/hotels/hotel_javson.jpg",
+    "location": "Defence Road, Sialkot, Punjab",
+    "contact": "(052) 3242975",
+    "rating": 3.9,
+    "rooms": [
+      {
+        "type": "Standard King Room",
+        "price": "Rs. 10,000",
+        "description": "This air-conditioned double room a private bathroom as well as a terrace. The unit offers 1 bed."
+      },
+      {
+        "type": "Deluxe King Room",
+        "price": "Rs. 13,000",
+        "description": "This air-conditioned double room a private bathroom as well as a terrace. The unit offers 1 bed."
+      },
+      {
+        "type": "Deluxe Suite",
+        "price": "Rs. 18,000",
+        "description": "The air-conditioned suite has 1 bedroom and 1 bathroom with a bath and a shower."
+      },
+      {
+        "type": "Junior Suite",
+        "price": "Rs. 18,000",
+        "description": "This suite features 1 living room, 1 separate bedroom and 1 bathroom with a bath and free toiletries."
+      }
+    ]
+  },
+  {
+    "name": "West Inn Hotel Faisalabad",
+    "image": "assets/hotels/west_inn_hotel_faisalabad.jpg",
+    "location": "123-Regency International, 949 Mall Road, Faisalabad",
+    "contact": "(041) 2647000",
+    "rating": 4.1,
+    "rooms": [
+      {
+        "type": "Junior Suite",
+        "price": "Rs. 12,600",
+        "description": "The air-conditioned suite has 1 bedroom and 1 bathroom with a bath and a shower."
+      },
+      {
+        "type": "Deluxe Double Room",
+        "price": "Rs. 14,850",
+        "description": " Featuring a balcony, this double room also offers a seating area, a wardrobe and a flat-screen TV with cable channels. The unit has 1 bed."
+      },
+      {
+        "type": "Executive Suite",
+        "price": "Rs. 22,500",
+        "description": "This suite features 1 living room, 1 separate bedroom and 1 bathroom with a bath and free toiletries."
+      },
+      {
+        "type": "Presidential Suite",
+        "price": "Rs. 35,000",
+        "description": "This room features two extra large beds, with various benefits from other rooms also."
+      }
+    ]
+  },
+  {
+    "name": "Arish Luxury Suites",
+    "image": "assets/hotels/arish_luxury_suites.jpg",
+    "location": "572 Sumbul Town, Olding, Skardu",
+    "contact": "0346 4166614",
+    "rating": 4.7,
+    "rooms": [
+      {
+        "type": "Deluxe Room",
+        "price": "Rs. 24,000",
+        "description": "The spacious double room features air conditioning, a tiled floor, as well as a private bathroom boasting a shower and slippers."
+      },
+      {
+        "type": "Deluxe Double Room",
+        "price": "Rs. 25,000",
+        "description": "This air-conditioned double room is comprised of a flat-screen TV with cable channels and a private bathroom."
+      },
+      {
+        "type": "Executive Suite",
+        "price": "Rs. 28,000",
+        "description": "This spacious suite consists of 1 living room, 1 separate bedroom and 1 bathroom with a shower and free toiletries."
+      },
+      {
+        "type": "Deluxe Double Room (2 Adults + 1 Child)",
+        "price": "Rs.  25,000",
+        "description": "The spacious double room provides air conditioning, an electric kettle, a terrace with an inner courtyard view as well as a private bathroom featuring a shower."
+      }
+    ]
+  },
+  {
+    "name": "Sultan Grand Hotel & Restaurant",
+    "image": "assets/hotels/sultan_grand_hotel_and_restaurant.jpg",
+    "location": "P227+2W8، Lahore - Sheikhupura - Faisalabad Road, Khan Colony, Sheikhupura, Punjab",
+    "contact": "0344 1111400",
+    "rating": 4.1,
+    "rooms": [
+      {
+        "type": "Standard Double Room",
+        "price": "Rs. 17,477",
+        "description": "Free WiFi, Free breakfast, Free self parking, Sleeps 2, 1 Double Bed."
+      },
+      {
+        "type": "Executive Double Room",
+        "price": "Rs. 20,528",
+        "description": "Free WiFi, Free breakfast, Free self parking, Sleeps 2, 1 Double Bed."
+      },
+      {
+        "type": "Family Quadruple Room",
+        "price": "Rs. 26,076",
+        "description": "Free WiFi, Free breakfast, Free self parking, Sleeps 4, 2 Double Beds."
+      },
+      {
+        "type": "Deluxe Double Room (2 Adults + 1 Child)",
+        "price": "Rs.  25,000",
+        "description": "The spacious double room provides air conditioning, an electric kettle, a terrace with an inner courtyard view as well as a private bathroom featuring a shower."
+      }
+    ]
+  },
+  {
+    "name": "Four Points by Sheraton Lahore",
+    "image": "assets/hotels/four_points_by_sheraton_lahore.jpg",
+    "location": "25 Egerton Rd, Garhi Shahu, Lahore, Punjab",
+    "contact": "(042) 36310077",
+    "rating": 4.3,
+    "rooms": [
+      {
+        "type": "Classic",
+        "price": "Rs. 22,470",
+        "description": "Guest room, 1 King, City view."
+      },
+      {
+        "type": "Executive Room",
+        "price": "Rs. 33,566",
+        "description": "Executive lounge access, Guest room, 1 King, City view."
+      },
+      {
+        "type": "Business Suite",
+        "price": "Rs. 47,437",
+        "description": "Executive lounge access, Suite, 1 King, City view."
+      }
+    ]
+  },
+  {
+    "name": "Fort Continental Hotel Peshawar",
+    "image": "assets/hotels/fort_continental_hotel_peshawar.jpg",
+    "location": "Firdos Chowk, Grand Trunk Rd, Hashtnagri, Peshawar, Khyber Pakhtunkhwa",
+    "contact": "(091) 2552201",
+    "rating": 4.1,
+    "rooms": [
+      {
+        "type": "DELUXE KING (STANDARD)",
+        "price": "Rs. 10,000",
+        "description": "Safe Room with a suit press, desk, ironing facilities, fan, heating, sofa, free wifi and much more."
+      },
+      {
+        "type": "DELUXE KING BEDROOM",
+        "price": "Rs. 11,000",
+        "description": "Safe Room with a suit press, desk, ironing facilities, fan, heating, sofa, free wifi and much more."
+      },
+      {
+        "type": "DELUXE TWIN (STANDARD)",
+        "price": "Rs. 12,500",
+        "description": "Safe Room with a suit press, desk, ironing facilities, fan, heating, sofa, free wifi, two bed and much more."
+      },
+      {
+        "type": "EXECUTIVE TWIN (STANDARD)",
+        "price": "Rs. 14,500",
+        "description": "Safe Room with a suit press, desk, ironing facilities, fan, heating, sofa, free wifi, two bed and much more."
+      },
+      {
+        "type": "EXECUTIVE KING (DOUBLE WC)",
+        "price": "Rs. 15,000",
+        "description": "Safe Room with a suit press, desk, ironing facilities, fan, heating, sofa, free wifi and much more."
+      },
+      {
+        "type": "STANDARD SUITE",
+        "price": "Rs. 17,000",
+        "description": "Safe Room with a suit press, desk, ironing facilities, fan, heating, sofa, free wifi and much more."
+      },
+      {
+        "type": "BUSINESS SUITE (KING)",
+        "price": "Rs. 18,000",
+        "description": "Safe Room with a suit press, desk, ironing facilities, fan, heating, sofa, free wifi and much more."
+      },
+      {
+        "type": "BUSINESS SUITE SUPERIOR",
+        "price": "Rs. 20,000",
+        "description": "Safe Room with a suit press, desk, ironing facilities, fan, heating, sofa, free wifi and much more."
+      }
+    ]
+  },
+  {
+    "name": "Faletti's Hotel",
+    "image": "assets/hotels/falettis_hotel.jpg",
+    "location": "24 Egerton Rd, Garhi Shahu, Lahore, Punjab",
+    "contact": "(091) 2552201",
+    "rating": 4.3,
+    "rooms": [
+      {
+        "type": "Executive King Room",
+        "price": "Rs. 20,000",
+        "description": "Offering free toiletries and bathrobes, this double room includes a private bathroom with a bath, a shower."
+      }
+    ]
+  },
+  {
+    "name": "Dreamworld Resort, Hotel & Golf Course",
+    "image": "assets/hotels/dreamworld_resort_hotel_and_golf_course.jpg",
+    "location": "Gulshan-e-Maymar, Super Highway, Adjacent, Block R Taiser Town, Karachi, Karachi City, Sindh",
+    "contact": "(021) 38692000",
+    "rating": 4.2,
+    "rooms": [
+      {
+        "type": "Superior Deluxe",
+        "price": "Rs. 20,016",
+        "description": "1 double bed, Room size: 27 m²/291 ft², Garden view, Balcony/terrace, Shower."
+      },
+      {
+        "type": "Deluxe Chalet",
+        "price": "Rs. 22,518",
+        "description": "Your Choice bed (1 or 2), Room size: 27 m²/291 ft², See view, No Smoking, Balcony/terrace, Shower."
+      },
+      {
+        "type": "Superior Suite",
+        "price": "Rs. 24,185",
+        "description": "1 King Bed, Room size: 27 m²/291 ft², No Smoking, Balcony/terrace, Shower."
+      },
+      {
+        "type": "Executive Suite",
+        "price": "Rs. 26,687",
+        "description": "1 King Bed, Room size: 27 m²/291 ft², Garden view, No Smoking, Balcony/terrace, 2 bathrooms, Seperate Shower."
+      },
+      {
+        "type": "Suite Chalet",
+        "price": "Rs. 28,355",
+        "description": "1 King Bed, Room size: 27 m²/291 ft², City view, No Smoking, Seperate shower/bathtub."
+      }
+    ]
+  },
+  {
+    "name": "Park Lane Hotel",
+    "image": "assets/hotels/park_lane_hotel.jpg",
+    "location": "107 MM Alam Rd, Block B3 Block B 3 Gulberg III, Lahore, Punjab",
+    "contact": "(042) 111 111 124",
+    "rating": 4.2,
+    "rooms": [
+      {
+        "type": "EXECUTIVE SUITE",
+        "price": "Rs. 90,000",
+        "description": "designed with flair, using playful textures. Contemporary design with minimalist red highlight contrasts with contemplative neutrals."
+      },
+      {
+        "type": "STUDIO SUITE",
+        "price": "Rs. 45,000",
+        "description": "expands into an enriching space that features comfortable furnishings plus lush fabrics in vibrant hues."
+      },
+      {
+        "type": "EXECUTIVE KING",
+        "price": "Rs. 50,000",
+        "description": "stylishly designed interior of rich and vibrant accents to contrast with the white bedding and smooth flood floor."
+      },
+      {
+        "type": "KING SUITE",
+        "price": "Rs. 38,000",
+        "description": "designed with flair, using playful textures. Contemporary design with minimalist red highlights contrasts with contemplative neutrals."
+      },
+      {
+        "type": "DELUXE TWIN",
+        "price": "Rs. 32,000",
+        "description": "distinguished with modern decor an distinctive, stylish bathrooms. Our rooms offer a divine contemporary retreat with a smooth, clean palette of colors."
+      },
+      {
+        "type": "DELUXE DOUBLE",
+        "price": "Rs. 32,000",
+        "description": "distinguished with modern decor an distinctive, stylish bathrooms. Our rooms offer a divine contemporary retreat with a smooth, clean palette of colors."
+      }
+    ]
+  },
+  {
+    "name": "Hotel One Tariq Road Multan",
+    "image": "assets/hotels/hotel_one_tariq_road_multan.jpg",
+    "location": "59 - B Tariq Rd, Altaf Town Multan, Punjab",
+    "contact": "0341 2201111",
+    "rating": 4.4,
+    "rooms": [
+      {
+        "type": "Deluxe Double Room",
+        "price": "Rs. 30,600",
+        "description": "The spacious double room provides air conditioning, a minibar, as well as a private bathroom featuring a bath and a shower."
+      },
+      {
+        "type": "Deluxe Twin Room",
+        "price": "Rs. 30,600",
+        "description": "Featuring free toiletries, this twin room includes a private bathroom with a bath, a shower and slippers."
+      },
+      {
+        "type": "Suite",
+        "price": "Rs. 36,000",
+        "description": "The spacious suite offers air conditioning, a minibar, as well as a private bathroom boasting a bath and a shower."
+      }
+    ]
+  },
+  {
+    "name": "The Residency Hotel",
+    "image": "assets/hotels/the_residency_hotel.jpg",
+    "location": "39-A Zafar Ali Rd, Gulberg V, Lahore, Punjab",
+    "contact": "(042) 111 395 395",
+    "rating": 4.1,
+    "rooms": [
+      {
+        "type": "Twin Sharing Roomm",
+        "price": "Rs. 20,000",
+        "description": "This is our Triple Room Deluxe."
+      },
+      {
+        "type": "Designer Queen Room",
+        "price": "Rs. 20,000",
+        "description": "Studio with Balcony. Studio with Balcony. Studio with Balcony."
+      },
+      {
+        "type": "Designer King Room",
+        "price": "Rs. 24,000",
+        "description": "Designer King Room, with the benefits of king's room."
+      },
+      {
+        "type": "Executive Boutique Room",
+        "price": "Rs. 28,000",
+        "description": "A room for four people to stay in with best features, and necessry equipments"
+      },
+      {
+        "type": "Executive Boutique",
+        "price": "Rs. 29,000",
+        "description": "this Boutique provides the pool view also which makes it even more good."
+      },
+      {
+        "type": "Designer Family Room",
+        "price": "Rs. 32,000",
+        "description": "Short description for the Double Room Standard goes here."
       }
     ]
   }
-  
 ]
