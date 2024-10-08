@@ -39,12 +39,10 @@ class HotelListPage extends StatelessWidget {
           Expanded(
             child: Obx(() {
               if (hotelController.isLoading.value) {
-                // Show loader while data is loading
                 return Center(child: CircularProgressIndicator());
               }
 
               if (hotelController.filteredHotels.isEmpty) {
-                // Show message if no hotels found
                 return Center(child: Text("No hotels found"));
               }
 
@@ -54,12 +52,11 @@ class HotelListPage extends StatelessWidget {
                   final hotel = hotelController.filteredHotels[index];
                   return GestureDetector(
                     onTap: () {
-                      // Navigate to HotelDetailsPage
                       Get.to(() => HotelDetailsPage(hotel: hotel));
                     },
                     child: Card(
                       child: Container(
-                        height: MediaQuery.of(context).size.height * 0.20, // 20% of screen height
+                        height: MediaQuery.of(context).size.height * 0.20,
                         child: Column(
                           children: [
                             Padding(
@@ -95,17 +92,15 @@ class HotelListPage extends StatelessWidget {
                                 ],
                               ),
                             ),
-                            // Hotel Image
                             Padding(
                               padding: const EdgeInsets.symmetric(horizontal: 10.0),
                               child: Image.asset(
                                 hotel.image,
-                                width: MediaQuery.of(context).size.width * 0.9, // 90% of screen width
+                                width: MediaQuery.of(context).size.width * 0.9,
                                 height: 80,
                                 fit: BoxFit.cover,
                               ),
                             ),
-                            // Hotel Location
                             Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: Row(

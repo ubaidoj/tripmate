@@ -6,7 +6,7 @@ class Hotel {
   final String location;
   final String contact;
   final List<Room> rooms;
-  double? rating;  
+  final double rating;  // Changed to 'final' to ensure rating is not null.
 
   Hotel({
     required this.name,
@@ -14,20 +14,21 @@ class Hotel {
     required this.location,
     required this.contact,
     required this.rooms,
-    this.rating,  
+    this.rating = 0.0,  // Default value for rating is 0.0 if not provided.
   });
 
   factory Hotel.fromJson(Map<String, dynamic> json) {
-    var roomList = json['rooms'] as List;
+    // Handle the 'rooms' list with a null check and map it to the Room model.
+    var roomList = json['rooms'] as List? ?? [];  // Handle null or empty lists.
     List<Room> rooms = roomList.map((roomJson) => Room.fromJson(roomJson)).toList();
 
     return Hotel(
-      name: json['name'],
-      image: json['image'],
-      location: json['location'],
-      contact: json['contact'],
+      name: json['name'] ?? '',  // Handle potential null name by defaulting to an empty string.
+      image: json['image'] ?? '',  // Handle potential null image.
+      location: json['location'] ?? '',  // Handle potential null location.
+      contact: json['contact'] ?? '',  // Handle potential null contact.
       rooms: rooms,
-      rating: json['rating']?.toDouble() ?? 0.0,  // Parse rating from JSON or default to 0
+      rating: (json['rating'] as num?)?.toDouble() ?? 0.0,  // Ensure rating is a double, defaulting to 0.0.
     );
   }
 }
