@@ -1,38 +1,20 @@
 class RecommendedPlaceModel {
   final String image;
-  final double rating;
+  final double rating; // You can assign a default rating as the JSON doesn't contain ratings
   final String location;
+
   RecommendedPlaceModel({
     required this.image,
     required this.rating,
     required this.location,
   });
-}
 
-List<RecommendedPlaceModel> recommendedPlaces = [
-  RecommendedPlaceModel(
-    image: "assets/places/place5.jpg",
-    rating: 4.4,
-    location: "St. Regis Bora Bora",
-  ),
-    RecommendedPlaceModel(
-    image: "assets/places/place4.jpg",
-    rating: 4.4,
-    location: "St. Regis Bora Bora",
-  ),
-  RecommendedPlaceModel(
-    image: "assets/places/place3.jpg",
-    rating: 4.4,
-    location: "St. Regis Bora Bora",
-  ),
-  RecommendedPlaceModel(
-    image: "assets/places/place2.jpg",
-    rating: 4.4,
-    location: "St. Regis Bora Bora",
-  ),
-  RecommendedPlaceModel(
-    image: "assets/places/place1.jpg",
-    rating: 4.4,
-    location: "St. Regis Bora Bora",
-  ),
-];
+  factory RecommendedPlaceModel.fromJson(Map<String, dynamic> json) {
+    // Assuming the first image from the gallery in tour_places is being used
+    return RecommendedPlaceModel(
+      image: json['tour_places'][0]['image'], // Accessing image from tour_places array
+      rating: 4.5, // Default rating if not available in JSON
+      location: json['location'],
+    );
+  }
+}

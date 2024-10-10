@@ -12,7 +12,7 @@ class TourplacesDetails extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        title: Text(tour_places['name'] ?? 'Unknown Place'), // Handle null case
+        title: Text(tour_places['name'] ?? 'Unknown Place'),
         backgroundColor: Colors.white,
         titleTextStyle: TextStyle(color: Colors.blue[900]),
       ),
@@ -23,26 +23,29 @@ class TourplacesDetails extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Image.asset(
-                tour_places['image'] ?? 'assets/images/placeholder.png', // Provide a placeholder image for null case
+                tour_places['image'] ?? 'assets/images/placeholder.png',
                 width: MediaQuery.of(context).size.width * 0.9,
               ),
               SizedBox(height: 16),
               Text(
-                'Location: ${tour_places['location'] ?? 'Unknown Location'}', // Handle null case for location
+                'Location: ${tour_places['location'] ?? 'Unknown Location'}',
                 style: TextStyle(fontSize: 16, color: Colors.grey[700]),
               ),
               SizedBox(height: 16),
-              if (tour_places.containsKey('history') && tour_places['history'] != null) // Check if history exists and is not null
+              if (tour_places.containsKey('history') &&
+                  tour_places['history'] != null)
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
                       'History',
-                      style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                      style:
+                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                     ),
                     SizedBox(height: 8),
                     Text(
-                      tour_places['history'] ?? 'No history available', // Provide a fallback for missing history
+                      tour_places['history'] ??
+                          'No history available', // Provide a fallback for missing history
                       style: TextStyle(fontSize: 16, color: Colors.grey[800]),
                     ),
                   ],
@@ -51,7 +54,9 @@ class TourplacesDetails extends StatelessWidget {
               ElevatedButton(
                 onPressed: () {
                   // Navigate to Full Map Screen, passing the location if available
-                  Get.to(() => FullScreenMap(destinationLocation: tour_places['location'] ?? 'Unknown Location'));
+                  Get.to(() => FullScreenMap(
+                      destinationLocation:
+                          tour_places['location'] ?? 'Unknown Location'));
                 },
                 child: Text('View Location on Map'),
               ),

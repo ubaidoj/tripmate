@@ -2,6 +2,8 @@
   {
     "name": "Peshawar",
     "location": "Khyber Pakhtunkhwa",
+    "lat": 34.0151,
+    "long": 71.5249,
     "image": "assets/images/peshawar.jpg",
     "gallery": [
       "assets/images/peshawar_1.jpg",
@@ -12,11 +14,15 @@
       {
         "name": "Bala Hisar Fort",
         "history": "A historical fort built in the 16th century.",
+        "lat": 34.0154,
+        "long": 71.5822,
         "image": "assets/images/pesh1.jpg"
       },
       {
         "name": "Peshawar Museum",
         "history": "Famous for its collection of Gandharan art.",
+        "lat": 34.0076,
+        "long": 71.5608,
         "image": "assets/images/pesh.jpg"
       }
     ],
@@ -24,6 +30,8 @@
     "mountains": [
       {
         "name": "Khyber Pass",
+        "lat": 34.0833,
+        "long": 71.1496,
         "image": "assets/images/khyber_pass.jpg"
       }
     ],
@@ -33,6 +41,8 @@
   {
     "name": "Buner",
     "location": "Khyber Pakhtunkhwa",
+    "lat": 34.4281,
+    "long": 72.4845,
     "image": "assets/images/buner.jpg",
     "gallery": [
       "assets/images/buner_1.jpg",
@@ -43,6 +53,8 @@
       {
         "name": "Sujan Singh Haveli",
         "history": "A historic haveli in Buner District.",
+        "lat": 34.4281,
+        "long": 72.4845,
         "image": "assets/images/bun1.jpg"
       }
     ],
@@ -50,12 +62,16 @@
     "mountains": [
       {
         "name": "Sakar Mountain",
+        "lat": 34.4124,
+        "long": 72.4802,
         "image": "assets/images/buner_3.jpg"
       }
     ],
     "forests": [
       {
         "name": "Buner Forest",
+        "lat": 34.4302,
+        "long": 72.4930,
         "image": "assets/images/makhuband.jpg"
       }
     ],
@@ -64,6 +80,8 @@
   {
     "name": "Lahore",
     "location": "Punjab",
+    "lat": 31.5497,
+    "long": 74.3436,
     "image": "assets/images/lah.jpg",
     "gallery": [
       "assets/images/lahore_1.jpg",
@@ -74,11 +92,15 @@
       {
         "name": "Badshahi Mosque",
         "history": "One of the largest mosques in the world, built in 1673.",
+        "lat": 31.5889,
+        "long": 74.3105,
         "image": "assets/images/lah.jpg"
       },
       {
         "name": "Lahore Fort",
         "history": "A UNESCO World Heritage site.",
+        "lat": 31.5893,
+        "long": 74.3092,
         "image": "assets/images/lah1.jpg"
       }
     ],
@@ -87,6 +109,8 @@
     "forests": [
       {
         "name": "Shalimar Gardens",
+        "lat": 31.5856,
+        "long": 74.3587,
         "image": "assets/images/lah2.jpg"
       }
     ],
@@ -95,6 +119,8 @@
   {
     "name": "Murree",
     "location": "Punjab",
+    "lat": 33.9070,
+    "long": 73.3943,
     "image": "assets/images/muree_1.jpg",
     "gallery": [
       "assets/images/muree_1.jpg",
@@ -105,6 +131,8 @@
       {
         "name": "Mall Road",
         "history": "A popular tourist spot with shopping and food stalls.",
+        "lat": 33.9080,
+        "long": 73.3916,
         "image": "assets/images/muree_3.jpg"
       }
     ],
@@ -112,12 +140,16 @@
     "mountains": [
       {
         "name": "Murree Hills",
+        "lat": 33.9070,
+        "long": 73.3943,
         "image": "assets/images/muree_1.jpg"
       }
     ],
     "forests": [
       {
         "name": "Murree Forests",
+        "lat": 33.9075,
+        "long": 73.3941,
         "image": "assets/images/muree_2.jpg"
       }
     ],
@@ -126,6 +158,8 @@
   {
     "name": "Swat",
     "location": "Khyber Pakhtunkhwa",
+    "lat": 35.2226,
+    "long": 72.4258,
     "image": "assets/images/swat_1.jpg",
     "gallery": [
       "assets/images/swat_1.jpg",
@@ -136,11 +170,15 @@
       {
         "name": "Mingora",
         "history": "The main town of Swat Valley, known for its markets and hotels.",
+        "lat": 34.7717,
+        "long": 72.3627,
         "image": "assets/images/swat_1.jpg"
       },
       {
         "name": "Fizagat Park",
         "history": "A beautiful park on the banks of the Swat River.",
+        "lat": 34.7877,
+        "long": 72.3653,
         "image": "assets/images/swat_2.jpg"
       }
     ],
@@ -148,12 +186,16 @@
     "mountains": [
       {
         "name": "Kalam Valley",
+        "lat": 35.4914,
+        "long": 72.5829,
         "image": "assets/images/swat_2.jpg"
       }
     ],
     "forests": [
       {
         "name": "Swat Forests",
+        "lat": 35.2167,
+        "long": 72.4331,
         "image": "assets/images/swat_2.jpg"
       }
     ],
@@ -162,6 +204,8 @@
   {
     "name": "Islamabad",
     "location": "Islamabad Capital Territory",
+    "lat": 33.6844,
+    "long": 73.0479,
     "image": "assets/images/isb.jpg",
     "gallery": [
       "assets/images/isb_1.jpg",
@@ -172,11 +216,15 @@
       {
         "name": "Faisal Mosque",
         "history": "The largest mosque in Pakistan, completed in 1986.",
+        "lat": 33.7290,
+        "long": 73.0376,
         "image": "assets/images/isb_4.jpg"
       },
       {
         "name": "Daman-e-Koh",
         "history": "A popular viewpoint overlooking Islamabad.",
+        "lat": 33.7345,
+        "long": 73.0681,
         "image": "assets/images/isb_1.jpg"
       }
     ],
@@ -184,6 +232,8 @@
     "mountains": [
       {
         "name": "Margalla Hills",
+        "lat": 33.7464,
+        "long": 73.0487,
         "image": "assets/images/isb_2.jpg"
       }
     ],
@@ -193,6 +243,8 @@
   {
     "name": "Karachi",
     "location": "Sindh",
+    "lat": 24.8607,
+    "long": 67.0011,
     "image": "assets/images/karachi.jpg",
     "gallery": [
       "assets/images/karachi_1.jpg",
@@ -203,538 +255,21 @@
       {
         "name": "Mazar-e-Quaid",
         "history": "The final resting place of Pakistan's founder, Muhammad Ali Jinnah.",
+        "lat": 24.8733,
+        "long": 67.0463,
         "image": "assets/images/mazar_e_quaid.jpg"
       }
     ],
     "beaches": [
       {
         "name": "Clifton Beach",
+        "lat": 24.8138,
+        "long": 67.0306,
         "image": "assets/images/clifton_beach.jpg"
-      },
-      {
-        "name": "Hawke's Bay Beach",
-        "image": "assets/images/hawkes_bay_beach.jpg"
       }
     ],
     "mountains": [],
     "forests": [],
     "deserts": []
-  },
-  {
-    "name": "Naran Kaghan",
-    "location": "Khyber Pakhtunkhwa",
-    "image": "assets/images/naran_kaghan.jpg",
-    "gallery": [
-      "assets/images/naran_kaghan_1.jpg",
-      "assets/images/naran_kaghan_2.jpg",
-      "assets/images/naran_kaghan_3.jpg"
-    ],
-    "tour_places": [
-      {
-        "name": "Lake Saif-ul-Malook",
-        "history": "A beautiful alpine lake surrounded by snow-capped peaks.",
-        "image": "assets/images/lake_saif_ul_malook.jpg"
-      }
-    ],
-    "beaches": [],
-    "mountains": [
-      {
-        "name": "Saifullah Peak",
-        "image": "assets/images/saifullah_peak.jpg"
-      }
-    ],
-    "forests": [
-      {
-        "name": "Naran Forests",
-        "image": "assets/images/naran_forests.jpg"
-      }
-    ],
-    "deserts": []
-  },
-  {
-    "name": "Kashmir",
-    "location": "Azad Jammu and Kashmir",
-    "image": "assets/images/kashmir.jpg",
-    "gallery": [
-      "assets/images/kashmir_1.jpg",
-      "assets/images/kashmir_2.jpg",
-      "assets/images/kashmir_3.jpg"
-    ],
-    "tour_places": [
-      {
-        "name": "Neelum Valley",
-        "history": "One of the most picturesque valleys in Kashmir.",
-        "image": "assets/images/neelum_valley.jpg"
-      }
-    ],
-    "beaches": [],
-    "mountains": [
-      {
-        "name": "Pir Sohawa",
-        "image": "assets/images/pir_sohawa.jpg"
-      }
-    ],
-    "forests": [],
-    "deserts": []
-  },
-  {
-    "name": "Gilgit Baltistan",
-    "location": "Gilgit Baltistan",
-    "image": "assets/images/gilgit_baltistan.jpg",
-    "gallery": [
-      "assets/images/gilgit_baltistan_1.jpg",
-      "assets/images/gilgit_baltistan_2.jpg",
-      "assets/images/gilgit_baltistan_3.jpg"
-    ],
-    "tour_places": [
-      {
-        "name": "Fairy Meadows",
-        "history": "A stunning meadow with a breathtaking view of Nanga Parbat.",
-        "image": "assets/images/fairy_meadows.jpg"
-      }
-    ],
-    "beaches": [],
-    "mountains": [
-      {
-        "name": "Nanga Parbat",
-        "image": "assets/images/nanga_parbat.jpg"
-      }
-    ],
-    "forests": [
-      {
-        "name": "Gilgit Forests",
-        "image": "assets/images/gilgit_forests.jpg"
-      }
-    ],
-    "deserts": [
-      {
-        "name": "Cold Desert",
-        "image": "assets/images/cold_desert.jpg"
-      }
-    ]
-  },
-  {
-      "name": "Quetta",
-      "location": "Balochistan, Pakistan",
-      "image": "",
-      "gallery": [
-          "assets/images/quetta_1.jpg",
-          "assets/images/quetta_2.png",
-          "assets/images/quetta_3.jpg"
-      ],
-      "tour_places": [
-        {
-          "name": "Hanna Lake",
-          "history": "A beautiful lake surrounded by mountains, constructed during British colonial rule.",
-          "image": "assets/images/hanna_lake.jpg"
-        },
-        {
-          "name": "Quaid-e-Azam Residency",
-          "history": "The place where Quaid-e-Azam spent his last days, located in Ziarat near Quetta.",
-          "image": "assets/images/quaid_e_azam_residency.jpg"
-        }
-      ],
-      "beaches": [],
-      "mountains": [
-        {
-          "name": "Chiltan Mountains",
-          "image": "assets/images/chiltan_mountains.jpg"
-        }
-      ],
-      "forests": [],
-      "deserts": []
-  },
-  {
-      "name": "Hyderabad",
-      "location": "Sindh, Pakistan",
-      "image": "",
-      "gallery": [
-          "assets/images/hyderabad_1.jpg",
-          "assets/images/hyderabad_2.jpg",
-          "assets/images/hyderabad_1.jpg"
-      ],
-      "tour_places": [
-        {
-          "name": "Rani Bagh",
-          "history": "A historical garden and zoo in Hyderabad, established during British colonial rule.",
-          "image": "assets/images/rani_bagh.jpg"
-        }
-      ],
-      "beaches": [],
-      "mountains": [],
-      "forests": [],
-      "deserts": []
-    },
-    {
-      "name": "Multan",
-      "location": "Punjab, Pakistan",
-      "image": "",
-      "gallery": [
-          "assets/images/multan_1.jpg",
-          "assets/images/multan_2.jpg",
-          "assets/images/multan_3.jpg"
-      ],
-      "tour_places": [
-        {
-          "name": "Tomb of Shah Rukn-e-Alam",
-          "history": "A prominent Sufi saint's shrine, known for its stunning architecture.",
-          "image": "assets/images/tomb_of_shah.jpg"
-        },
-        {
-          "name": "Multan Fort",
-          "history": "An ancient fort known for its history dating back to the early centuries.",
-          "image": "assets/images/multan_fort.jpg"
-        }
-      ],
-      "beaches": [],
-      "mountains": [],
-      "forests": [],
-      "deserts": [
-        {
-          "name": "Thal Desert",
-          "image": "assets/images/thal_desert_multan.jpg"
-        }
-      ]
-    },
-    {
-      "name": "Sialkot",
-      "location": "Punjab, Pakistan",
-      "image": "",
-      "gallery": [
-          "assets/images/sialkot_1.jpg",
-          "assets/images/sialkot_2.jpg",
-          "assets/images/sialkot_3.jpg"
-      ],
-      "tour_places": [
-        {
-          "name": "Iqbal Manzil",
-          "history": "The birthplace of Allama Iqbal, the poet and philosopher of Pakistan.",
-          "image": "assets/images/iqbal_manzil.jpg"
-        }
-      ],
-      "beaches": [],
-      "mountains": [],
-      "forests": [],
-      "deserts": []
-    },
-    {
-      "name": "Bahawalpur",
-      "location": "Punjab, Pakistan",
-      "image": "",
-      "gallery": [
-          "assets/images/bahawalpur_1.jpg",
-          "assets/images/bahawalpur_2.jpg",
-          "assets/images/bahawalpur_3.jpg"
-      ],
-      "tour_places": [
-        {
-          "name": "Noor Mahal",
-          "history": "A historic palace built during the time of the Nawabs of Bahawalpur.",
-          "image": "assets/images/noor_mahal.jpg"
-        },
-        {
-          "name": "Derawar Fort",
-          "history": "A large square fort located in the Cholistan Desert.",
-          "image": "assets/images/darawar_fort.jpg"
-        },
-        {
-          "name": "Fawara Chowk",
-          "history": "Fountain gifted by Queen Victoria to Nawab of Bahawalpur",
-          "image": "assets/images/fawara_chowk.jpg"
-        },
-        {
-          "name": "Sadiq Garh Palace",
-          "history": "An impressive palace built by the Nawabs of Bahawalpur.",
-          "image": "assets/images/sadiq_garh_palace.jpg"
-        }
-      ],
-      "beaches": [],
-      "mountains": [],
-      "forests": [],
-      "deserts": [
-        {
-          "name": "Cholistan Desert",
-          "image": "assets/images/cholistan_desert.jpg"
-        }
-      ]
-    },
-    {
-      "name": "Faisalabad",
-      "location": "Punjab, Pakistan",
-      "image": "",
-      "gallery": [
-        "assets/images/faisalabad_1.jpg",
-        "assets/images/faisalabad_2.jpg",
-        "assets/images/faisalabad_3.jpg"
-      ],
-      "tour_places": [
-        {
-          "name": "Clock Tower",
-          "history": "A central landmark of Faisalabad, built during British rule.",
-          "image": "assets/images/clock_tower_faisalabad.jpg"
-        }
-      ],
-      "beaches": [],
-      "mountains": [],
-      "forests": [],
-      "deserts": []
-    },
-    {
-      "name": "Sukkur",
-      "location": "Sindh, Pakistan",
-      "image": "",
-      "gallery": [
-        "assets/images/sukkur_1.jpg",
-        "assets/images/sukkur_2.jpg",
-        "assets/images/sukkur_3.jpg"
-      ],
-      "tour_places": [
-        {
-          "name": "Sukkur Barrage",
-          "history": "A large barrage built on the Indus River to control water flow for irrigation.",
-          "image": "assets/images/sukkur_barrage.jpg"
-        },
-        {
-          "name": "Lansdowne Bridge",
-          "history": "A historical bridge connecting Sukkur and Rohri, built during British rule.",
-          "image": "assets/images/lansdowne_bridge.jpg"
-        }
-      ],
-      "beaches": [],
-      "mountains": [],
-      "forests": [],
-      "deserts": []
-    },
-    {
-      "name": "Gwadar",
-      "location": "Balochistan, Pakistan",
-      "image": "",
-      "gallery": [
-        "assets/images/gwadar_1.jpg",
-        "assets/images/gwadar_2.jpeg",
-        "assets/images/gwadar_3.jpeg"
-      ],
-      "tour_places": [
-        {
-          "name": "Gwadar Port",
-          "history": "A key deep-sea port in Balochistan, important for trade and economic development.",
-          "image": "assets/images/gwadar_port.jpg"
-        }
-      ],
-      "beaches": [
-        {
-          "name": "Gwadar Beach",
-          "image": "assets/images/gwadar_beach.jpg"
-        },
-        {
-          "name": "Hammerhead Beach",
-          "image": "assets/images/hammer_head_beach.jpg"
-        }
-      ],
-      "mountains": [],
-      "forests": [],
-      "deserts": []
-    },
-    {
-      "name": "Rahim Yar Khan",
-      "location": "Punjab, Pakistan",
-      "image": "",
-      "gallery": [
-        "assets/images/rahim_yar_khan_1.jpg",
-        "assets/images/rahim_yar_khan_2.jpg",
-        "assets/images/rahim_yar_khan_3.jpg"
-      ],
-      "tour_places": [
-        {
-          "name": "Bhong Mosque",
-          "history": "designed and constructed over a period of nearly 50 years (1932 - 1982) and won the Aga Khan Award for Architecture in 1986",
-          "image": "assets/images/bhong_mosque"
-        }
-      ],
-      "beaches": [],
-      "mountains": [],
-      "forests": [],
-      "deserts": []
-    },
-    {
-      "name": "Sargodha",
-      "location": "Punjab, Pakistan",
-      "image": "",
-      "gallery": [
-        "assets/images/sargodha_1.jpg",
-        "assets/images/sargodha_2.jpg",
-        "assets/images/sargodha_3.jpg"
-      ],
-      "tour_places": [
-        {
-          "name": "Kirana Hills",
-          "history": "A small range of hills located near Sargodha, known for its natural beauty.",
-          "image": "assets/images/kirana_hills.jpg"
-        }
-      ],
-      "beaches": [],
-      "mountains": [
-        {
-          "name": "Kirana Hills",
-          "image": "assets/images/kirana_hills_mountain.jpg"
-        }
-      ],
-      "forests": [],
-      "deserts": []
-    },
-    {
-      "name": "Thatta",
-      "location": "Sindh, Pakistan",
-      "image": "",
-      "gallery": [
-        "assets/images/thatta_1.jpg",
-        "assets/images/thatta_2.jpg",
-        "assets/images/thatta_3.jpg"
-      ],
-      "tour_places": [
-        {
-          "name": "Makli Necropolis",
-          "history": "A UNESCO World Heritage Site, the largest graveyard in the world, dating back centuries.",
-          "image": "assets/images/makli_necroplis.jpg"
-        },
-        {
-          "name": "Shah Jahan Mosque",
-          "history": "An architectural masterpiece built in the 17th century by Mughal Emperor Shah Jahan.",
-          "image": "assets/images/shah_jahan_mosque.jpg"
-        }
-      ],
-      "beaches": [],
-      "mountains": [],
-      "forests": [],
-      "deserts": []
-    },
-    {
-      "name": "Chitral",
-      "location": "Khyber Pakhtunkhwa, Pakistan",
-      "image": "",
-      "gallery": [
-        "assets/images/chitral_1.jpg",
-        "assets/images/chitral_2.png",
-        "assets/images/chitral_3.jpeg"
-      ],
-      "tour_places": [
-        {
-          "name": "Chitral National Park",
-          "history": "Up until 1983, Chitral Gol was considered to be the private property of the former Mehtar of Chitral.",
-          "image": "assets/images/chitral_national_park.jpg"
-        },
-        {
-          "name": "Chitral Fort",
-          "history": "An ancient fort with historical significance in the Chitral region.",
-          "image": "assets/images/chitral_fort.jpg"
-        },
-        {
-          "name": "Kalash Valley",
-          "history": "A culturally rich valley inhabited by the Kalash people, famous for their unique traditions.",
-          "image": "assets/images/kalash_valley.jpg"
-        }
-      ],
-      "beaches": [],
-      "mountains": [
-        {
-          "name": "Tirich Mir",
-          "image": "assets/images/tirich_mir.jpg"
-        }
-      ],
-      "forests": [],
-      "deserts": []
-    },
-    {
-      "name": "Abbottabad",
-      "location": "Khyber Pakhtunkhwa, Pakistan",
-      "image": "",
-      "gallery": [
-        "assets/images/abbottabad_1.jpg",
-        "assets/images/abbottabad_2.jpg",
-        "assets/images/abbottabad_3.jpg"
-      ],
-      "tour_places": [
-        {
-          "name": "Shimla Hill",
-          "history": "A popular picnic and trekking spot offering a panoramic view of the surrounding area.",
-          "image": "assets/images/shimla_hill.jpg"
-        }
-      ],
-      "beaches": [],
-      "mountains": [
-        {
-          "name": "Thandiani",
-          "image": "assets/images/thandiani.jpg"
-        }
-      ],
-      "forests": [
-        {
-          "name": "Ayubia National Park",
-          "image": "assets/images/ayubia_national_park.jpg"
-        }
-      ],
-      "deserts": []
-    },
-    {
-      "name": "Sibi",
-      "location": "Balochistan, Pakistan",
-      "image": "",
-      "gallery": [
-        "assets/images/sibi_1.jpg",
-        "assets/images/sibi_2.jpg",
-        "assets/images/sibi_3.jpg"
-      ],
-      "tour_places": [
-        {
-          "name": "Sibi Mela",
-          "history": "An annual festival in Sibi showcasing traditional Baloch and Pashtun culture, horse racing, and livestock exhibitions.",
-          "image": "assets/images/sibi_mela.jpg"
-        },
-        {
-          "name": "Sibi Museum",
-          "history": "A museum with historical artifacts from ancient civilizations that settled in the region.",
-          "image": "assets/images/sibi_museum.png"
-        }
-      ],
-      "beaches": [],
-      "mountains": [],
-      "forests": [],
-      "deserts": [
-        {
-          "name": "Kharan Desert",
-          "image": "assets/images/kharan_desert.jpg"
-        }
-      ]
-    },
-    {
-      "name": "Mianwali",
-      "location": "Punjab, Pakistan",
-      "image": "",
-      "gallery": [
-        "assets/images/mianwali_1.jpg",
-        "assets/images/mianwali_2.jpg",
-        "assets/images/mianwali_3.jpg"
-      ],
-      "tour_places": [
-        {
-          "name": "Namal Lake",
-          "history": "A beautiful natural lake surrounded by mountains, ideal for picnics and fishing.",
-          "image": "assets/images/namal_lake.jpg"
-        },
-        {
-          "name": "Namal Dam",
-          "history": "A historic dam built in the British era, providing irrigation water to the area and attracting tourists for its scenic views.",
-          "image": "assets/images/namal_dam.jpg"
-        }
-      ],
-      "beaches": [],
-      "mountains": [
-        {
-          "name": "Salt Range",
-          "image": "assets/images/salt_range.jpg"
-        }
-      ],
-      "forests": [],
-      "deserts": []
-    }
+  }
 ]

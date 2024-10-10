@@ -207,7 +207,7 @@ class HomeContent extends StatelessWidget {
           ],
         ),
         const SizedBox(height: 10),
-        const RecommendedPlaces(),
+        RecommendedPlaces(), // Display dynamic recommended places here
         const SizedBox(height: 10),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,

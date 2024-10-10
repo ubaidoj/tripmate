@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:tripmate/Screens/tourist_details_page.dart';
 import 'package:tripmate/controller/nearby_places_controller.dart';
 
@@ -11,6 +12,8 @@ class NearbyPlaces extends StatelessWidget {
     return Obx(() {
       if (controller.isLoading.value) {
         return const Center(child: CircularProgressIndicator());
+      } else if (controller.nearbyPlaces.isEmpty) {
+        return Center(child: Text('No nearby places found'));
       } else {
         return Column(
           children: List.generate(controller.nearbyPlaces.length, (index) {
@@ -43,7 +46,7 @@ class NearbyPlaces extends StatelessWidget {
                         children: [
                           ClipRRect(
                             borderRadius: BorderRadius.circular(12),
-                            child: Image.network(
+                            child: Image.asset(
                               place['image'],
                               height: double.maxFinite,
                               width: 130,
@@ -64,7 +67,7 @@ class NearbyPlaces extends StatelessWidget {
                                 ),
                                 Text(place['location']),
                                 const SizedBox(height: 10),
-                                Text(place['category']),
+                                Text("Category: " + (place['tour_places'].isNotEmpty ? "Tour Place" : "Other")),
                                 const Spacer(),
                                 Row(
                                   children: [

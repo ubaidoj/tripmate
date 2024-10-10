@@ -1,19 +1,31 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:tripmate/Screens/tourist_details_page.dart';
-import 'package:tripmate/models/recommended_places_model.dart';
+import 'package:tripmate/controller/recommended_plcaes-controller.dart';
 
 class RecommendedPlaces extends StatelessWidget {
-  const RecommendedPlaces({Key? key}) : super(key: key);
+  final RecommendedPlacesController controller = Get.put(RecommendedPlacesController());
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 235,
-      child: ListView.separated(
+
+    controller.refreshPlaces();
+
+    return Obx(() {
+      // Check if the list is empty and show a loading spinner
+      if (controller.recommendedPlaces.isEmpty) {
+        return const Center(child: CircularProgressIndicator());
+      }
+
+      return SizedBox(
+        height: 235,
+        child: ListView.separated(
           physics: const BouncingScrollPhysics(),
           scrollDirection: Axis.horizontal,
           itemBuilder: (context, index) {
+            final place = controller.recommendedPlaces[index];
+
             return SizedBox(
               width: 220,
               child: Card(
@@ -27,12 +39,13 @@ class RecommendedPlaces extends StatelessWidget {
                   borderRadius: BorderRadius.circular(12),
                   onTap: () {
                     Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => TouristDetailsPage(
-                            image: recommendedPlaces[index].image,
-                          ),
-                        ));
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => TouristDetailsPage(
+                          image: place.image,
+                        ),
+                      ),
+                    );
                   },
                   child: Padding(
                     padding: const EdgeInsets.all(10),
@@ -41,7 +54,7 @@ class RecommendedPlaces extends StatelessWidget {
                         ClipRRect(
                           borderRadius: BorderRadius.circular(12),
                           child: Image.asset(
-                            recommendedPlaces[index].image,
+                            place.image,
                             width: double.maxFinite,
                             fit: BoxFit.cover,
                             height: 150,
@@ -50,22 +63,25 @@ class RecommendedPlaces extends StatelessWidget {
                         const SizedBox(height: 5),
                         Row(
                           children: [
-                            const Text(
-                              "St Regis Bora Bora",
-                              style: TextStyle(
-                                fontSize: 15,
-                                fontWeight: FontWeight.bold,
+                            Expanded(
+                              child: Text(
+                                place.location,
+                                style: const TextStyle(
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.bold,
+                                  overflow: TextOverflow.ellipsis,
+                                ),
                               ),
                             ),
-                            const Spacer(),
+                            const SizedBox(width: 5),
                             Icon(
                               Icons.star,
                               color: Colors.yellow.shade700,
                               size: 14,
                             ),
-                            const Text(
-                              "4.4",
-                              style: TextStyle(
+                            Text(
+                              place.rating.toString(),
+                              style: const TextStyle(
                                 fontSize: 12,
                               ),
                             )
@@ -80,10 +96,13 @@ class RecommendedPlaces extends StatelessWidget {
                               size: 16,
                             ),
                             const SizedBox(width: 5),
-                            const Text(
-                              "French Polynesia",
-                              style: TextStyle(
-                                fontSize: 12,
+                            Expanded(
+                              child: Text(
+                                place.location,
+                                style: const TextStyle(
+                                  fontSize: 12,
+                                  overflow: TextOverflow.ellipsis,
+                                ),
                               ),
                             )
                           ],
@@ -96,9 +115,11 @@ class RecommendedPlaces extends StatelessWidget {
             );
           },
           separatorBuilder: (context, index) => const Padding(
-                padding: EdgeInsets.only(right: 10),
-              ),
-          itemCount: recommendedPlaces.length),
-    );
+            padding: EdgeInsets.only(right: 10),
+          ),
+          itemCount: controller.recommendedPlaces.length,
+        ),
+      );
+    });
   }
 }
