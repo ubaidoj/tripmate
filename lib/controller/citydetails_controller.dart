@@ -3,9 +3,12 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:geolocator/geolocator.dart';
 
-class CityListController extends GetxController {
+class CitydetailsController extends GetxController {
   var cities = [].obs;  // Observable list for city data
   Position? currentPosition;
+
+  // Create a reactive variable to hold the distance info
+  var distanceInfo = ''.obs;
 
   @override
   void onInit() {
@@ -48,9 +51,10 @@ class CityListController extends GetxController {
   }
 
   // Calculate distance from the user's current location to the city's location
-  Future<double?> getDistanceFromUser(double? cityLat, double? cityLon) async {
+  Future<void> getDistanceFromUser(double? cityLat, double? cityLon) async {
     if (currentPosition == null || cityLat == null || cityLon == null) {
-      return null;  // Handle missing data
+      distanceInfo.value = 'Unable to calculate distance';
+      return;
     }
 
     double distance = Geolocator.distanceBetween(
@@ -60,6 +64,7 @@ class CityListController extends GetxController {
       cityLon,
     );
 
-    return distance / 1000;  // Convert to kilometers
+    // Set the distance information to the reactive variable
+    distanceInfo.value = 'Distance: ${distance.toStringAsFixed(2)} km';
   }
 }

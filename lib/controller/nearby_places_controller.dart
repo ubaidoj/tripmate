@@ -47,7 +47,7 @@ class NearbyPlacesController extends GetxController {
           'Location permissions are permanently denied, we cannot request permissions.');
     }
 
-    // When we reach here, permissions are granted, and we can retrieve the current location.
+    // Permissions are granted, retrieve the current location.
     return await Geolocator.getCurrentPosition(
         desiredAccuracy: LocationAccuracy.high);
   }
@@ -55,36 +55,44 @@ class NearbyPlacesController extends GetxController {
   Future<void> fetchNearbyPlaces() async {
     isLoading(true);
 
-    // Fetch user's current location
-    Position position = await _getUserCurrentLocation();
-    final userLat = position.latitude;
-    final userLong = position.longitude;
+    try {
+      // Fetch user's current location
+      Position position = await _getUserCurrentLocation();
+      final userLat = position.latitude;
+      final userLong = position.longitude;
 
-    // Load the JSON file from assets
-    final jsonString =
-        await rootBundle.rootBundle.loadString('assets/cities.json');
-    final data = json.decode(jsonString);
+      // Load the JSON file from assets
+      final jsonString =
+          await rootBundle.rootBundle.loadString('assets/cities.json');
+      final data = json.decode(jsonString) as List;
 
-    List<dynamic> filteredPlaces = [];
+      List<Map<String, dynamic>> filteredPlaces = [];
 
-    // Filter places that are nearby (within a certain distance)
-    for (var city in data) {
-  final cityLat = city['lat'];
-  final cityLong = city['long'];
-  double distance = calculateDistance(userLat, userLong, cityLat, cityLong);
-  
-  // Debugging: Print the city name and the calculated distance
-  print("City: ${city['name']} - Distance: $distance km");
-  
-  if (distance <= 100) { // Places within 100 km
-    filteredPlaces.add(city);
-  }
-}
+      // Filter places that are nearby (within a certain distance)
+      for (var city in data) {
+        final cityLat = city['lat'];
+        final cityLong = city['long'];
+        double distance = calculateDistance(userLat, userLong, cityLat, cityLong);
 
-    nearbyPlaces.value = filteredPlaces;
+        if (distance <= 100) { // Places within 100 km
+          filteredPlaces.add({
+            ...city,
+            'distance': distance.toStringAsFixed(2), // Add distance to the map
+          });
+        }
+      }
 
-    if (nearbyPlaces.isEmpty) {
-      print("No nearby places found");
+      // Sort places from low distance to high distance
+      filteredPlaces.sort((a, b) => a['distance'].compareTo(b['distance']));
+
+      nearbyPlaces.value = filteredPlaces;
+
+      if (nearbyPlaces.isEmpty) {
+        print("No nearby places found");
+      }
+
+    } catch (e) {
+      print("Error fetching nearby places: $e");
     }
 
     isLoading(false);

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:tripmate/Screens/tourist_details_page.dart';
 import 'package:tripmate/controller/nearby_places_controller.dart';
 
@@ -15,14 +14,15 @@ class NearbyPlaces extends StatelessWidget {
       } else if (controller.nearbyPlaces.isEmpty) {
         return Center(child: Text('No nearby places found'));
       } else {
-        return Column(
-          children: List.generate(controller.nearbyPlaces.length, (index) {
+        return ListView.builder(
+          itemCount: controller.nearbyPlaces.length,
+          itemBuilder: (context, index) {
             final place = controller.nearbyPlaces[index];
             return Padding(
               padding: const EdgeInsets.only(bottom: 10),
               child: SizedBox(
                 height: 135,
-                width: double.maxFinite,
+                width: double.infinity, // Ensure the card takes full width
                 child: Card(
                   elevation: 0.4,
                   shape: RoundedRectangleBorder(
@@ -48,8 +48,8 @@ class NearbyPlaces extends StatelessWidget {
                             borderRadius: BorderRadius.circular(12),
                             child: Image.asset(
                               place['image'],
-                              height: double.maxFinite,
-                              width: 130,
+                              height: 120, // Added height constraint
+                              width: 130,  // Added width constraint
                               fit: BoxFit.cover,
                             ),
                           ),
@@ -94,7 +94,7 @@ class NearbyPlaces extends StatelessWidget {
                 ),
               ),
             );
-          }),
+          },
         );
       }
     });

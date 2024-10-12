@@ -156,5 +156,5 @@ class FullScreenMap extends StatelessWidget {
       ),
       onSubmitted: onSubmitted,
     );
-  }
+  } 
 }
