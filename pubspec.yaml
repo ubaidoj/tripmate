@@ -54,6 +54,8 @@ dependencies:
   smooth_page_indicator: ^1.2.0+3
   flutter_tts: ^4.0.2
   shared_preferences: ^2.3.2
+  google_sign_in: ^6.2.1
+  cloud_firestore: ^5.4.4
 
 flutter_launcher_icons:
   android: "launcher_icon"

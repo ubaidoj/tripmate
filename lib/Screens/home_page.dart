@@ -8,10 +8,10 @@ import 'package:tripmate/Screens/widgets/nearby_places.dart';
 import 'package:tripmate/Screens/widgets/recommended_places.dart';
 import 'package:tripmate/Screens/widgets/tourist_places.dart';
 import 'package:tripmate/Screens/widgets/map_card.dart';
+import 'package:tripmate/authentications/profile_page.dart';
 import 'package:tripmate/controller/home_controller.dart';
 import 'package:tripmate/Pages/ticket_page.dart';
 import 'package:tripmate/Pages/saved_page.dart';
-import 'package:tripmate/Pages/profile_page.dart';
 
 class HomePage extends StatelessWidget {
   final HomeController homeController = Get.put(HomeController());
