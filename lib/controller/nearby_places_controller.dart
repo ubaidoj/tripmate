@@ -14,7 +14,6 @@ class NearbyPlacesController extends GetxController {
     fetchNearbyPlaces();
   }
 
-  // Function to calculate the distance between two coordinates (Haversine formula)
   double calculateDistance(double lat1, double lon1, double lat2, double lon2) {
     const double p = 0.017453292519943295; // Conversion factor to radians
     final double a = 0.5 - cos((lat2 - lat1) * p) / 2 +
@@ -27,10 +26,8 @@ class NearbyPlacesController extends GetxController {
     bool serviceEnabled;
     LocationPermission permission;
 
-    // Check if location services are enabled.
     serviceEnabled = await Geolocator.isLocationServiceEnabled();
     if (!serviceEnabled) {
-      // Location services are not enabled, return an error.
       return Future.error('Location services are disabled.');
     }
 
@@ -47,7 +44,6 @@ class NearbyPlacesController extends GetxController {
           'Location permissions are permanently denied, we cannot request permissions.');
     }
 
-    // Permissions are granted, retrieve the current location.
     return await Geolocator.getCurrentPosition(
         desiredAccuracy: LocationAccuracy.high);
   }
@@ -56,40 +52,45 @@ class NearbyPlacesController extends GetxController {
     isLoading(true);
 
     try {
-      // Fetch user's current location
       Position position = await _getUserCurrentLocation();
       final userLat = position.latitude;
       final userLong = position.longitude;
 
-      // Load the JSON file from assets
+      // Load the JSON data
       final jsonString =
           await rootBundle.rootBundle.loadString('assets/cities.json');
       final data = json.decode(jsonString) as List;
 
       List<Map<String, dynamic>> filteredPlaces = [];
 
-      // Filter places that are nearby (within a certain distance)
+      // Process the cities and their places
       for (var city in data) {
         final cityLat = city['lat'];
         final cityLong = city['long'];
         double distance = calculateDistance(userLat, userLong, cityLat, cityLong);
 
-        if (distance <= 100) { // Places within 100 km
-          filteredPlaces.add({
-            ...city,
-            'distance': distance.toStringAsFixed(2), // Add distance to the map
-          });
+        // Loop through all categories like tour_places, mountains, forests, etc.
+        for (var category in ['tour_places', 'mountains', 'forests', 'beaches']) {
+          if (city[category] != null) { // Check if category exists
+            for (var place in city[category]) {
+              double placeDistance = calculateDistance(
+                  userLat, userLong, place['lat'], place['long']);
+              if (placeDistance <= 100) { // Places within 150 km
+                filteredPlaces.add({
+                  'name': place['name'],
+                  'cityName': city['name'],
+                  'distance': placeDistance.toStringAsFixed(2),
+                  'image': place['image']
+                });
+              }
+            }
+          }
         }
       }
 
-      // Sort places from low distance to high distance
+      // Sort places by distance
       filteredPlaces.sort((a, b) => a['distance'].compareTo(b['distance']));
-
       nearbyPlaces.value = filteredPlaces;
-
-      if (nearbyPlaces.isEmpty) {
-        print("No nearby places found");
-      }
 
     } catch (e) {
       print("Error fetching nearby places: $e");

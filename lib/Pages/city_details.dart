@@ -1,19 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:tripmate/Pages/fuelcalculator.dart';
 import 'package:tripmate/Screens/googlemaps_screen.dart';
-import 'package:tripmate/controller/cirtylist_controller.dart';
 import 'package:tripmate/controller/citydetails_controller.dart';
 
 class CityDetailPage extends StatelessWidget {
   final Map city;
-  final CitydetailsController citydetailsController = Get.find(); // Use Get.find() to get the existing controller
+  final CitydetailsController citydetailsController = Get.find(); 
 
   CityDetailPage({required this.city});
 
   @override
   Widget build(BuildContext context) {
-    // Call getDistanceFromUser() to calculate distance as soon as the page is built
     citydetailsController.getDistanceFromUser(city['lat'], city['long']);
 
     return Scaffold(
@@ -21,15 +20,15 @@ class CityDetailPage extends StatelessWidget {
         backgroundColor: Colors.white,
         elevation: 0,
         leading: IconButton(
-          icon: SvgPicture.asset('assets/icons/back_icon.svg'), // SVG Back Icon
+          icon: SvgPicture.asset('assets/icons/back_icon.svg'),
           onPressed: () {
-            Get.back(); // Go back to the previous page
+            Get.back(); 
           },
         ),
         title: Text(
           city['name'],
           style: TextStyle(
-            color: Colors.blue.shade900, // Dark blue color
+            color: Colors.blue.shade900,
             fontWeight: FontWeight.bold,
           ),
         ),
@@ -38,7 +37,7 @@ class CityDetailPage extends StatelessWidget {
           IconButton(
             icon: Icon(Icons.calculate, color: Colors.blue.shade900),
             onPressed: () {
-              // Navigate to any calculator or related page if required
+              Get.to(FuelCalculatorScreen());
             },
           ),
         ],
@@ -92,7 +91,7 @@ class CityDetailPage extends StatelessWidget {
                         borderRadius: BorderRadius.circular(30),
                       ),
                     ),
-                    child: Text("View on Map"),
+                    child: Text("View on Map", style: TextStyle(color: Colors.white),),
                   ),
                 ],
               ),

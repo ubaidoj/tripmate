@@ -1,23 +1,17 @@
+import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 import 'package:permission_handler/permission_handler.dart';
-import 'package:get/get.dart';
-import 'package:tripmate/Screens/home_page.dart';
 
 class PermissionController extends GetxController {
-  Future<void> requestPermissionsAndNavigate() async {
-    var status = await [
-      Permission.microphone,
-      Permission.storage,
-    ].request();
+  // Method to check current permission status
+  Future<bool> checkPermissionStatus() async {
+    var status = await Permission.location.status;
+    return status.isGranted;
+  }
 
-    if (status[Permission.microphone]!.isGranted &&
-        status[Permission.storage]!.isGranted && status[Permission.camera]!.isGranted) {
-      Get.to(() => HomePage());
-    } else {
-      Get.snackbar(
-        'Permissions required',
-        'Please grant all permissions to proceed.',
-        snackPosition: SnackPosition.BOTTOM,
-      );
-    }
+  // Method to request location permissions
+  Future<bool> requestPermissions() async {
+    var status = await Permission.location.request();
+
+    return status.isGranted;
   }
 }

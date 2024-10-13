@@ -1,20 +1,25 @@
 class RecommendedPlaceModel {
+  final String name;
   final String image;
-  final double rating; // You can assign a default rating as the JSON doesn't contain ratings
-  final String location;
+  final String city;
+  final double lat;
+  final double long;
 
   RecommendedPlaceModel({
+    required this.name,
     required this.image,
-    required this.rating,
-    required this.location,
+    required this.city,
+    required this.lat,
+    required this.long,
   });
 
-  factory RecommendedPlaceModel.fromJson(Map<String, dynamic> json) {
-    // Assuming the first image from the gallery in tour_places is being used
+  factory RecommendedPlaceModel.fromJson(Map<String, dynamic> json, String city) {
     return RecommendedPlaceModel(
-      image: json['tour_places'][0]['image'], // Accessing image from tour_places array
-      rating: 4.5, // Default rating if not available in JSON
-      location: json['location'],
+      name: json['name'],
+      image: json['image'],
+      city: city,
+      lat: json['lat'],
+      long: json['long'],
     );
   }
 }

@@ -18,6 +18,45 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    return FutureBuilder<bool>(
+      future: homeController.checkLocationPermission(),
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          // Show loading indicator while checking permission
+          return Scaffold(
+            body: Center(
+              child: CircularProgressIndicator(),
+            ),
+          );
+        }
+
+        if (snapshot.hasError || (snapshot.hasData && !snapshot.data!)) {
+          // If permission is not granted, show a message or redirect
+          return Scaffold(
+            body: Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text("Location permission is required to access this page."),
+                  ElevatedButton(
+                    onPressed: () {
+                      Get.back(); // Redirect user back to the previous page
+                    },
+                    child: Text("Go Back"),
+                  ),
+                ],
+              ),
+            ),
+          );
+        }
+
+        // If permission is granted, display the home page
+        return _buildHomePageContent(context);
+      },
+    );
+  }
+
+  Widget _buildHomePageContent(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
@@ -57,85 +96,7 @@ class HomePage extends StatelessWidget {
           ),
         ],
       ),
-      drawer: Drawer(
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: <Widget>[
-            DrawerHeader(
-              decoration: BoxDecoration(
-                color: Color.fromRGBO(22, 86, 182, 1),
-              ),
-              child: Text(
-                'Menu',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 24,
-                ),
-              ),
-            ),
-            ListTile(
-              leading: Icon(Ionicons.grid_outline),
-              title: Text('DashBoard'),
-              onTap: () {
-                //Get.to(() => Dashboard());               
-              },
-            ),
-            ListTile(
-              leading: Icon(Ionicons.home_outline),
-              title: Text('Home'),
-              onTap: () {
-                homeController.updateIndex(0);
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              leading: Icon(Ionicons.person_outline),
-              title: Text('Profile'),
-              onTap: () {
-                homeController.updateIndex(3);
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              leading: Icon(Ionicons.restaurant_outline),
-              title: Text('Hotel Booking'),
-              onTap: () {
-                Get.to(HotelListPage());
-              },
-            ),
-            ListTile(
-              leading: Icon(Ionicons.ticket_outline),
-              title: Text('Tickets'),
-              onTap: () {
-                homeController.updateIndex(1);
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              leading: Icon(Ionicons.call_outline),
-              title: Text('Contact Us'),
-              onTap: () {
-                //Get.to(() => ContactPage());  // Example navigation
-              },
-            ),
-            ListTile(
-              leading: Icon(Ionicons.star_outline),
-              title: Text('Rate Us'),
-              onTap: () {
-                // Add your rate us functionality
-              },
-            ),
-            ListTile(
-              leading: Icon(Ionicons.bookmark_outline),
-              title: Text('Saved Locations'),
-              onTap: () {
-                homeController.updateIndex(2);
-                Navigator.pop(context);
-              },
-            ),
-          ],
-        ),
-      ),
+      drawer: _buildDrawer(context),
       body: Obx(() {
         switch (homeController.selectedIndex.value) {
           case 0:
@@ -154,7 +115,7 @@ class HomePage extends StatelessWidget {
         return BottomNavigationBar(
           currentIndex: homeController.selectedIndex.value,
           onTap: (index) {
-            homeController.updateIndex(index);
+            homeController.updateIndex(index); // Trigger refresh or navigation
           },
           type: BottomNavigationBarType.fixed,
           showSelectedLabels: false,
@@ -181,46 +142,137 @@ class HomePage extends StatelessWidget {
       }),
     );
   }
+
+  Widget _buildDrawer(BuildContext context) {
+    return Drawer(
+      child: ListView(
+        padding: EdgeInsets.zero,
+        children: <Widget>[
+          DrawerHeader(
+            decoration: BoxDecoration(
+              color: Color.fromRGBO(22, 86, 182, 1),
+            ),
+            child: Text(
+              'Menu',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 24,
+              ),
+            ),
+          ),
+          ListTile(
+            leading: Icon(Ionicons.grid_outline),
+            title: Text('DashBoard'),
+            onTap: () {
+              // Get.to(() => Dashboard());
+            },
+          ),
+          ListTile(
+            leading: Icon(Ionicons.home_outline),
+            title: Text('Home'),
+            onTap: () {
+              homeController.updateIndex(0);
+              Navigator.pop(context);
+            },
+          ),
+          ListTile(
+            leading: Icon(Ionicons.person_outline),
+            title: Text('Profile'),
+            onTap: () {
+              homeController.updateIndex(3);
+              Navigator.pop(context);
+            },
+          ),
+          ListTile(
+            leading: Icon(Ionicons.restaurant_outline),
+            title: Text('Hotel Booking'),
+            onTap: () {
+              Get.to(HotelListPage());
+            },
+          ),
+          ListTile(
+            leading: Icon(Ionicons.ticket_outline),
+            title: Text('Tickets'),
+            onTap: () {
+              homeController.updateIndex(1);
+              Navigator.pop(context);
+            },
+          ),
+          ListTile(
+            leading: Icon(Ionicons.call_outline),
+            title: Text('Contact Us'),
+            onTap: () {
+              // Get.to(() => ContactPage());  // Example navigation
+            },
+          ),
+          ListTile(
+            leading: Icon(Ionicons.star_outline),
+            title: Text('Rate Us'),
+            onTap: () {
+              // Add your rate us functionality
+            },
+          ),
+          ListTile(
+            leading: Icon(Ionicons.bookmark_outline),
+            title: Text('Saved Locations'),
+            onTap: () {
+              homeController.updateIndex(2);
+              Navigator.pop(context);
+            },
+          ),
+        ],
+      ),
+    );
+  }
 }
 
 class HomeContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      physics: const BouncingScrollPhysics(),
-      padding: const EdgeInsets.all(14),
+    return Column(  // Use Column instead of Expanded to structure the widgets properly
       children: [
-        const LocationCard(),
-        const SizedBox(height: 15),
-        MapCard(), // Add the MapCard here
-        const SizedBox(height: 15),
-        TouristPlaces(),
-        const SizedBox(height: 10),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(
-              "Recommendation",
-              style: Theme.of(context).textTheme.titleLarge,
-            ),
-            TextButton(onPressed: () {}, child: const Text("View All")),
-          ],
+        Expanded(
+          child: ListView(
+            physics: const BouncingScrollPhysics(),
+            padding: const EdgeInsets.all(14),
+            children: [
+              const LocationCard(),
+              const SizedBox(height: 15),
+              MapCard(), // Add the MapCard here
+              const SizedBox(height: 15),
+              TouristPlaces(),
+              const SizedBox(height: 10),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "Recommendation",
+                    style: Theme.of(context).textTheme.titleLarge,
+                  ),
+                  TextButton(onPressed: () {}, child: const Text("View All")),
+                ],
+              ),
+              const SizedBox(height: 10),
+              RecommendedPlaces(), // Display dynamic recommended places here
+              const SizedBox(height: 10),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "Nearby From You",
+                    style: Theme.of(context).textTheme.titleLarge,
+                  ),
+                  TextButton(onPressed: () {}, child: const Text("View All")),
+                ],
+              ),
+              const SizedBox(height: 10),
+              SizedBox(
+                height: 250, // Adjust the height as needed to ensure the ListView inside NearbyPlaces has proper size
+                child: NearbyPlaces(), // Display nearby places here
+              ),
+            ],
+          ),
         ),
-        const SizedBox(height: 10),
-        RecommendedPlaces(), // Display dynamic recommended places here
-        const SizedBox(height: 10),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(
-              "Nearby From You",
-              style: Theme.of(context).textTheme.titleLarge,
-            ),
-            TextButton(onPressed: () {}, child: const Text("View All")),
-          ],
-        ),
-        const SizedBox(height: 10),
-        NearbyPlaces(),
       ],
     );
   }

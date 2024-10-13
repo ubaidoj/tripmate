@@ -43,7 +43,7 @@ class OnboardingScreen extends StatelessWidget {
           ),
         ),
         Positioned(
-          top: screenHeight * 0.65,
+          top: screenHeight * 0.65, 
           left: (screenWidth - (screenWidth * 0.4)) / 2,
           child: Container(
             width: screenWidth * 0.4,
@@ -146,19 +146,20 @@ class OnboardingScreen extends StatelessWidget {
   }
 
   Widget _buildNextButton(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
+  final screenWidth = MediaQuery.of(context).size.width;
 
-    return ElevatedButton(
-      onPressed: controller.nextPage,
-      style: ElevatedButton.styleFrom(
-        padding: EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-        backgroundColor: Color.fromRGBO(22, 86, 182, 1),
-        fixedSize: Size(screenWidth * 0.9, 48),
-      ),
-      child: Text(
-        controller.currentPage.value == 2 ? 'Continue' : 'Next',
-        style: TextStyle(fontSize: screenWidth * 0.04, color: Colors.white),
-      ),
-    );
-  }
+  return ElevatedButton(
+    onPressed: () => controller.nextPage(context), // Pass context here
+    style: ElevatedButton.styleFrom(
+      padding: EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+      backgroundColor: Color.fromRGBO(22, 86, 182, 1),
+      fixedSize: Size(screenWidth * 0.9, 48),
+    ),
+    child: Text(
+      controller.currentPage.value == 2 ? 'Continue' : 'Next',
+      style: TextStyle(fontSize: screenWidth * 0.04, color: Colors.white),
+    ),
+  );
+}
+
 }
