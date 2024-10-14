@@ -37,7 +37,14 @@ class FullScreenMap extends StatelessWidget {
           IconButton(
             icon: Icon(Icons.calculate, color: Colors.blue.shade900),
             onPressed: () {
-              Get.to(FuelCalculatorScreen()); // Navigate to the Fuel Calculator Page
+              // Explicitly check and pass the `distanceInfo` as a String
+              //String distance = mapController.distanceInfo.value; 
+              //if (distance.isNotEmpty) {
+                //Get.to(() => FuelCalculatorScreen(distance: distance));
+              //} else {
+                // Handle the case where distance is not yet calculated
+                Get.snackbar('Error', 'Distance is not available yet!');
+              //}
             },
           ),
         ],
@@ -82,9 +89,8 @@ class FullScreenMap extends StatelessWidget {
                       ],
                     ),
                   ),
-                  // Adjust the 'top' value here to avoid overlap
                   Positioned(
-                    top: 150, // Increased from 100 to 150 to avoid overlap
+                    top: 150,
                     left: 10,
                     child: Container(
                       color: Colors.white.withOpacity(0.8),
@@ -102,7 +108,6 @@ class FullScreenMap extends StatelessWidget {
                           ),
                           SizedBox(height: 4),
                           Text(
-                            // Safely access the distance part
                             mapController.distanceInfo.value.contains('\n')
                                 ? mapController.distanceInfo.value.split('\n')[0]
                                 : 'Calculating distance...',
@@ -119,7 +124,6 @@ class FullScreenMap extends StatelessWidget {
                           ),
                           SizedBox(height: 4),
                           Text(
-                            // Safely access the estimated time part
                             mapController.distanceInfo.value.contains('\n')
                                 ? mapController.distanceInfo.value.split('\n')[1]
                                 : 'Calculating time...',
@@ -156,5 +160,5 @@ class FullScreenMap extends StatelessWidget {
       ),
       onSubmitted: onSubmitted,
     );
-  } 
+  }
 }

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:ionicons/ionicons.dart';
+import 'package:tripmate/Screens/tourist_details_page.dart';
 import 'package:tripmate/controller/recommended_plcaes-controller.dart';
-import 'package:tripmate/screens/tourist_details_page.dart';
 
 class RecommendedPlaces extends StatelessWidget {
   final RecommendedPlacesController controller = Get.put(RecommendedPlacesController());
@@ -37,12 +37,19 @@ class RecommendedPlaces extends StatelessWidget {
                 ),
                 child: InkWell(
                   borderRadius: BorderRadius.circular(12),
-                  onTap: () {
+                  onTap: () async {
+                    final double calculatedDistance = await calculateDistance(place.lat, place.long);
+                    final String estimatedTime = _calculateEstimatedTime(calculatedDistance);
+
                     Navigator.push(
                       context,
                       MaterialPageRoute(
                         builder: (context) => TouristDetailsPage(
                           image: place.image,
+                          name: place.name,
+                          location: place.city,
+                          distance: calculatedDistance,
+                          estimatedTime: estimatedTime,
                         ),
                       ),
                     );
@@ -103,7 +110,7 @@ class RecommendedPlaces extends StatelessWidget {
                                   return const Text('...');
                                 }
                               },
-                            )
+                            ),
                           ],
                         ),
                       ],
@@ -122,6 +129,22 @@ class RecommendedPlaces extends StatelessWidget {
     });
   }
 
+  // Helper function to calculate estimated time
+  String _calculateEstimatedTime(double distance) {
+    const double speed = 60; // Assume 60 km/h average speed
+    double timeInHours = distance / speed;
+
+    int hours = timeInHours.floor();
+    int minutes = ((timeInHours - hours) * 60).round();
+
+    if (hours == 0) {
+      return "${minutes}m";
+    } else {
+      return "${hours}h ${minutes}m";
+    }
+  }
+
+  // Assuming you already have a calculateDistance function
   Future<double> calculateDistance(double lat, double long) async {
     Position position = await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
     return Geolocator.distanceBetween(position.latitude, position.longitude, lat, long) / 1000;

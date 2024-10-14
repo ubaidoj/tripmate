@@ -64,7 +64,7 @@ class CityListPage extends StatelessWidget {
                             ),
                             Text(
                               distance != null
-                                  ? "Distance: ${distance.toStringAsFixed(2)} km"
+                                  ? ": ${distance.toStringAsFixed(2)} km"
                                   : "Calculating distance...",
                               style: TextStyle(fontWeight: FontWeight.bold),
                             ),

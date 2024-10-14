@@ -4,14 +4,14 @@ import 'package:get/get.dart';
 import 'package:geolocator/geolocator.dart';
 
 class CityListController extends GetxController {
-  var cities = [].obs;  // Observable list for city data
+  var cities = [].obs;
   Position? currentPosition;
 
   @override
   void onInit() {
     super.onInit();
-    loadCitiesFromJson();  // Load the cities when the controller is initialized
-    _determinePosition();  // Get the user's current location
+    loadCitiesFromJson();
+    _determinePosition();
   }
 
   // Load city data from the JSON file
@@ -26,7 +26,6 @@ class CityListController extends GetxController {
     bool serviceEnabled;
     LocationPermission permission;
 
-    // Test if location services are enabled.
     serviceEnabled = await Geolocator.isLocationServiceEnabled();
     if (!serviceEnabled) {
       return Future.error('Location services are disabled.');
@@ -50,16 +49,14 @@ class CityListController extends GetxController {
   // Calculate distance from the user's current location to the city's location
   Future<double?> getDistanceFromUser(double? cityLat, double? cityLon) async {
     if (currentPosition == null || cityLat == null || cityLon == null) {
-      return null;  // Handle missing data
+      return null;
     }
 
-    double distance = Geolocator.distanceBetween(
+    return Geolocator.distanceBetween(
       currentPosition!.latitude,
       currentPosition!.longitude,
       cityLat,
       cityLon,
-    );
-
-    return distance / 1000;  // Convert to kilometers
+    ) / 1000;
   }
 }

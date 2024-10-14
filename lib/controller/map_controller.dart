@@ -4,7 +4,7 @@ import 'package:geocoding/geocoding.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
-class MapController extends GetxController {
+class MapController extends GetxController { 
   GoogleMapController? mapController;
   var currentLocation = LatLng(0, 0).obs; // This is an Rx<LatLng> type
   var isLoading = true.obs;

@@ -4,6 +4,11 @@ import 'package:tripmate/controller/fuelcalculator_controller.dart';
 
 class FuelCalculatorScreen extends StatelessWidget {
   final FuelCalculatorController controller = Get.put(FuelCalculatorController());
+  final String distance;
+
+  FuelCalculatorScreen({required this.distance}) {
+    controller.setDistance(distance);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -19,26 +24,26 @@ class FuelCalculatorScreen extends StatelessWidget {
             TextField(
               keyboardType: TextInputType.number,
               decoration: InputDecoration(labelText: 'Distance (in km or miles)'),
-              onChanged: controller.setDistance, // Update distance in controller
+              controller: TextEditingController(text: distance),
+              onChanged: controller.setDistance,
             ),
             TextField(
               keyboardType: TextInputType.number,
               decoration: InputDecoration(labelText: 'Fuel Efficiency (km/l or miles/gallon)'),
-              onChanged: controller.setEfficiency, // Update efficiency in controller
+              onChanged: controller.setEfficiency,
             ),
             TextField(
               keyboardType: TextInputType.number,
               decoration: InputDecoration(labelText: 'Fuel Price (per liter or gallon)'),
-              onChanged: controller.setPrice, // Update price in controller
+              onChanged: controller.setPrice,
             ),
             SizedBox(height: 20),
             ElevatedButton(
-              onPressed: controller.calculateFuelCost, // Calculate fuel cost
+              onPressed: controller.calculateFuelCost,
               child: Text('Calculate'),
             ),
             SizedBox(height: 20),
             Obx(() {
-              // Reactively update the UI when fuelCost changes
               return Text(
                 controller.fuelCost.value > 0
                     ? 'Fuel Charge: \$${controller.fuelCost.value.toStringAsFixed(2)}'

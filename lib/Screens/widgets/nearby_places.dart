@@ -1,5 +1,8 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:tripmate/Screens/tourist_details_page.dart';
 import 'package:tripmate/controller/nearby_places_controller.dart';
 
@@ -8,7 +11,6 @@ class NearbyPlaces extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Get screen size for responsive design
     var screenSize = MediaQuery.of(context).size;
 
     return Obx(() {
@@ -17,16 +19,16 @@ class NearbyPlaces extends StatelessWidget {
       } else if (controller.nearbyPlaces.isEmpty) {
         return Center(child: Text('No nearby places found'));
       } else {
-        // Use Flexible to make the ListView take available space inside a Column or parent widget
         return Flexible(
           child: ListView.builder(
             itemCount: controller.nearbyPlaces.length,
             itemBuilder: (context, index) {
               final place = controller.nearbyPlaces[index];
+
               return Padding(
                 padding: const EdgeInsets.only(bottom: 10),
                 child: SizedBox(
-                  height: screenSize.height * 0.15, // Responsive height (15% of screen height)
+                  height: screenSize.height * 0.15,
                   width: double.infinity,
                   child: Card(
                     elevation: 0.4,
@@ -36,11 +38,18 @@ class NearbyPlaces extends StatelessWidget {
                     child: InkWell(
                       borderRadius: BorderRadius.circular(12),
                       onTap: () {
+                        final double parsedDistance = double.parse(place['distance']);
+                        final String estimatedTime = _calculateEstimatedTime(parsedDistance);
+
                         Navigator.push(
                           context,
                           MaterialPageRoute(
                             builder: (context) => TouristDetailsPage(
                               image: place['image'],
+                              name: place['name'],
+                              location: place['cityName'],
+                              distance: parsedDistance,
+                              estimatedTime: estimatedTime,
                             ),
                           ),
                         );
@@ -53,8 +62,8 @@ class NearbyPlaces extends StatelessWidget {
                               borderRadius: BorderRadius.circular(12),
                               child: Image.asset(
                                 place['image'],
-                                height: screenSize.height * 0.13, // Reduced height for responsiveness
-                                width: screenSize.width * 0.25, // Width set to 30% of screen width
+                                height: screenSize.height * 0.13,
+                                width: screenSize.width * 0.25,
                                 fit: BoxFit.cover,
                               ),
                             ),
@@ -90,7 +99,7 @@ class NearbyPlaces extends StatelessWidget {
                                   ),
                                 ],
                               ),
-                            )
+                            ),
                           ],
                         ),
                       ),
@@ -103,5 +112,20 @@ class NearbyPlaces extends StatelessWidget {
         );
       }
     });
+  }
+
+  // Helper function to calculate estimated time
+  String _calculateEstimatedTime(double distance) {
+    const double speed = 60; // Assume 60 km/h average speed
+    double timeInHours = distance / speed;
+
+    int hours = timeInHours.floor();
+    int minutes = ((timeInHours - hours) * 60).round();
+
+    if (hours == 0) {
+      return "${minutes}m";
+    } else {
+      return "${hours}h ${minutes}m";
+    }
   }
 }

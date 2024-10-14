@@ -34,15 +34,19 @@ class NearbyPlaces extends StatelessWidget {
                   child: InkWell(
                     borderRadius: BorderRadius.circular(12),
                     onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => TouristDetailsPage(
-                            image: place['image'],
-                          ),
-                        ),
-                      );
-                    },
+  Navigator.push(
+    context,
+    MaterialPageRoute(
+      builder: (context) => TouristDetailsPage(
+        image: place['image'],
+        name: place['name'],
+        location: place['cityName'],
+        distance: double.parse(place['distance']),
+        estimatedTime: "01d:32h:56m", // Sample estimated time (replace with actual)
+      ),
+    ),
+  );
+},
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Row(

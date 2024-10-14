@@ -1,40 +1,31 @@
-import 'dart:convert';
-import 'package:flutter/services.dart';
-import 'package:get/get.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:get/get.dart';
 
 class CitydetailsController extends GetxController {
-  var cities = [].obs;  // Observable list for city data
+  var distanceInfo = ''.obs;     // Stores only the distance information
+  var estimatedTime = ''.obs;    // Stores only the estimated time information
+
   Position? currentPosition;
 
-  // Create a reactive variable to hold the distance info
-  var distanceInfo = ''.obs;
-
+  // Initialize with getting user's current position
   @override
   void onInit() {
     super.onInit();
-    loadCitiesFromJson();  // Load the cities when the controller is initialized
-    _determinePosition();  // Get the user's current location
+    _determinePosition();
   }
 
-  // Load city data from the JSON file
-  Future<void> loadCitiesFromJson() async {
-    final String response = await rootBundle.loadString('assets/cities.json');
-    final data = json.decode(response);
-    cities.value = data;
-  }
-
-  // Get the user's current position
+  // Get current location and distance for detail view
   Future<void> _determinePosition() async {
     bool serviceEnabled;
     LocationPermission permission;
 
-    // Test if location services are enabled.
+    // Check if location services are enabled
     serviceEnabled = await Geolocator.isLocationServiceEnabled();
     if (!serviceEnabled) {
       return Future.error('Location services are disabled.');
     }
 
+    // Check location permissions
     permission = await Geolocator.checkPermission();
     if (permission == LocationPermission.denied) {
       permission = await Geolocator.requestPermission();
@@ -47,24 +38,34 @@ class CitydetailsController extends GetxController {
       return Future.error('Location permissions are permanently denied');
     }
 
+    // Get the current position of the user
     currentPosition = await Geolocator.getCurrentPosition();
   }
 
-  // Calculate distance from the user's current location to the city's location
+  // Calculate the distance to the city and estimated time
   Future<void> getDistanceFromUser(double? cityLat, double? cityLon) async {
     if (currentPosition == null || cityLat == null || cityLon == null) {
-      distanceInfo.value = 'Unable to calculate distance';
+      distanceInfo.value = "Distance info unavailable";
+      estimatedTime.value = "Time info unavailable";
       return;
     }
 
-    double distance = Geolocator.distanceBetween(
+    // Calculate distance in meters between user and the city
+    final distanceInMeters = Geolocator.distanceBetween(
       currentPosition!.latitude,
       currentPosition!.longitude,
       cityLat,
       cityLon,
     );
 
-    // Set the distance information to the reactive variable
-    distanceInfo.value = 'Distance: ${distance.toStringAsFixed(2)} km';
+    // Convert the distance to kilometers
+    final distanceInKm = distanceInMeters / 1000;
+
+    // Calculate the estimated time in hours, assuming an average speed of 80 km/h
+    final estimatedTimeInHours = distanceInKm / 80;
+
+    // Update the observable values separately
+    distanceInfo.value = "${distanceInKm.toStringAsFixed(2)} km";
+    estimatedTime.value = "${estimatedTimeInHours.toStringAsFixed(2)} hours";
   }
 }
