@@ -1,7 +1,7 @@
 [
   {
     "name": "Peshawar",
-    "location": "Peshawar, Khyber Pakhtunkhwa, Pakistan",
+    "location": "Peshawar,Pakhtunkhwa, Pakistan",
     "lat": 34.0151,
     "long": 71.5249,
     "image": "assets/images/peshawar_3.jpg",
@@ -11,7 +11,7 @@
       "assets/images/peshawar_3.jpg"
     ],
     "tour_places": [
-      {
+      { 
         "name": "Bala Hisar Fort",
         "history": "A historical fort built in the 16th century by the Mughal Emperor Babur. It served as a royal residence and military stronghold.",
         "lat": 34.0083,
@@ -82,7 +82,7 @@
   },  
   {
     "name": "Buner",
-    "location": "Buner, Khyber Pakhtunkhwa, Pakistan",
+    "location": "Buner, Pakhtunkhwa, Pakistan",
     "lat": 34.4213,
     "long": 72.6157,
     "image": "assets/images/buner_3.jpg",
@@ -228,7 +228,7 @@
         "name": "Changa Manga Forest",
         "lat": 31.0800,
         "long": 73.9646,
-        "image": "assets/images/changa_manga.jpg"
+        "image": "assets/images/changa_manga_forest.jpg"
       }
     ],
     "deserts": []
@@ -308,7 +308,7 @@
         "name": "Murree Forests",
         "lat": 33.9070,
         "long": 73.3943,
-        "image": "assets/images/murree_forests.jpg"
+        "image": "assets/images/muree_2.jpg"
       },
       {
         "name": "Ayubia Forest",
@@ -385,7 +385,7 @@
         "history": "A popular hill station located on the banks of the Swat River, Bahrain is known for its riverside resorts, local bazaars, and trekking opportunities.",
         "lat": 35.1941,
         "long": 72.5304,
-        "image": "assets/images/bahrain.jpg"
+        "image": "assets/images/behrain.jpg"
       }
     ],
     "beaches": [],
@@ -470,7 +470,7 @@
         "history": "A restored ancient village that has been transformed into a heritage and cultural site. It features traditional architecture, historical buildings, and local eateries.",
         "lat": 33.7361,
         "long": 73.0632,
-        "image": "assets/images/saidpur_village.jpg"
+        "image": "assets/images/saidpur_villege.jpg"
       },
       {
         "name": "Shahdara Valley",
@@ -585,7 +585,7 @@
         "history": "A UNESCO World Heritage Site located near Karachi, known for its intricately carved sandstone tombs dating back to the 15th and 18th centuries.",
         "lat": 24.8443,
         "long": 67.4701,
-        "image": "assets/images/chaukhandi_tombs.jpg"
+        "image": "assets/images/chaukandi_tombs.jpg"
       }
     ],
     "beaches": [
@@ -626,7 +626,7 @@
   },        
   {
     "name": "Naran Kaghan",
-    "location": "Naran Kaghan, Khyber Pakhtunkhwa, Pakistan",
+    "location": "Naran Kaghan, Pakhtunkhwa, Pakistan",
     "lat": 34.0055,
     "long": 73.6550,
     "image": "assets/images/naran_kaghan_3.jpg",
@@ -721,7 +721,7 @@
         "history": "One of the most picturesque valleys in Kashmir, famous for its lush green landscape, clear blue rivers, and snow-covered mountains.",
         "lat": 34.4735,
         "long": 73.6531,
-        "image": "assets/images/neelum_valley.jpg"
+        "image": "assets/images/neelam_valley.jpg"
       },
       {
         "name": "Rawalakot",
@@ -994,19 +994,19 @@
     "location": "Hyderabad, Sindh, Pakistan",
     "lat": 25.3960,
     "long": 68.3578,
-    "image": "",
+    "image": "assets/images/hyderabad_1.jpg",
     "gallery": [
       "assets/images/hyderabad_1.jpg",
       "assets/images/hyderabad_2.jpg",
       "assets/images/hyderabad_1.jpg"
-    ],
+    ], 
     "tour_places": [
       {
         "name": "Pakka Qila (Strong Fort)",
         "history": "A historical fort built by Mian Ghulam Shah Kalhoro in the 18th century, representing the rich heritage of Hyderabad.",
         "lat": 25.3803,
         "long": 68.3759,
-        "image": "assets/images/pakka_qila.jpg"
+        "image": "assets/images/pakka.jpg"
       },
       {
         "name": "Sindh Museum",
@@ -1331,7 +1331,7 @@
         "name": "Hammerhead Beach",
         "lat": 25.1485,
         "long": 62.3522,
-        "image": "assets/images/hammer_head_beach.jpg"
+        "image": "assets/images/hammar_head_beach.jpg"
       }
     ],
     "mountains": [],
@@ -1401,7 +1401,7 @@
         "history": "A small range of hills located near Sargodha, known for its natural beauty.",
         "lat": 32.1480,
         "long": 72.6367,
-        "image": "assets/images/kirana_hills.jpg"
+        "image": "assets/images/kirana.jpg"
       },
       {
         "name": "Company Bagh",
@@ -1431,7 +1431,7 @@
         "name": "Kirana Hills",
         "lat": 32.1480,
         "long": 72.6367,
-        "image": "assets/images/kirana_hills_mountain.jpg"
+        "image": "assets/images/kirana.jpg"
       }
     ],
     "forests": [],
@@ -1454,7 +1454,7 @@
         "history": "A UNESCO World Heritage Site, the largest graveyard in the world, dating back centuries.",
         "lat": 24.7566,
         "long": 67.8974,
-        "image": "assets/images/makli_necroplis.jpg"
+        "image": "assets/images/makli.jpg"
       },
       {
         "name": "Shah Jahan Mosque",
@@ -1471,7 +1471,7 @@
   },    
   {
     "name": "Chitral",
-    "location": "Chitral, Khyber Pakhtunkhwa, Pakistan",
+    "location": "Chitral, Pakhtunkhwa, Pakistan",
     "lat": 35.8219,
     "long": 71.7860,
     "image": "assets/images/chitral_3.jpg",
@@ -1537,14 +1537,14 @@
   },    
   {
     "name": "Abbottabad",
-    "location": "Abbottabad, Khyber Pakhtunkhwa, Pakistan",
+    "location": "Abbottabad, Pakhtunkhwa, Pakistan",
     "lat": 34.1497,
     "long": 73.2190,
-    "image": "assets/images/abbottabad_3.jpg",
+    "image": "assets/images/abbottabad_1.jpg",
     "gallery": [
       "assets/images/abbottabad_1.jpg",
       "assets/images/abbottabad_2.jpg",
-      "assets/images/abbottabad_3.jpg"
+      "assets/images/abbottabad_1.jpg"
     ],
     "tour_places": [
       {
@@ -1552,7 +1552,7 @@
         "history": "A popular picnic and trekking spot offering a panoramic view of the surrounding area.",
         "lat": 34.1424,
         "long": 73.2340,
-        "image": "assets/images/shimla_hill.jpg"
+        "image": "assets/images/shimla.jpg"
       },
       {
         "name": "Ilyasi Masjid",
@@ -1963,7 +1963,7 @@
         "history": "Often called 'The Great Wall of Sindh,' Ranikot is one of the largest forts in the world, stretching over 26 kilometers. It is an ancient fort with mysterious origins and a unique architectural style.",
         "lat": 26.2383,
         "long": 67.8424,
-        "image": "assets/images/rani_fort_dady.jpg"
+        "image": "assets/images/rani_fort_dadu.jpg"
       }
     ],
     "beaches": [],

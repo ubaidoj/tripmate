@@ -8,7 +8,7 @@ class FuelCalculatorController extends GetxController {
 
   void calculateFuelCost() {
     if (distance.value > 0 && efficiency.value > 0 && price.value > 0) {
-      fuelCost.value = (distance.value / efficiency.value) * price.value;
+      fuelCost.value = distance.value * efficiency.value * price.value;
     } else {
       fuelCost.value = 0.0;
       Get.snackbar(

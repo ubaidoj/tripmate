@@ -1,33 +1,49 @@
+// main.dart
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart'; 
-import 'package:google_fonts/google_fonts.dart';
-import 'package:tripmate/Pages/welcome_page.dart';
+import 'package:get/get.dart';
 import 'package:tripmate/authentications/auth_controller.dart';
+import 'package:tripmate/Pages/welcome_page.dart';
+import 'package:tripmate/authentications/signup_page.dart';
+import 'package:tripmate/controller/saved_location_controller.dart';
 
-Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized(); // Ensure that the Flutter engine is initialized
-  await Firebase.initializeApp(); 
-  runApp(const MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   Get.put(AuthController());
-  runApp(const MyApp());
+  Get.put(SavedLocationController());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return GetMaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'TripMate',
+      theme: ThemeData.light(),
+      darkTheme: ThemeData.dark(),
+      home: AuthChecker(),
+    );
+  }
+}
+
+class AuthChecker extends StatelessWidget {
+  final AuthController authController = Get.find<AuthController>();
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp( 
-      title: 'Travel App',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        textTheme: GoogleFonts.mulishTextTheme(
-          Theme.of(context).textTheme,
-        ),
-      ),
-      home: WelcomePage(),  // Set the initial screen
+    return StreamBuilder(
+      stream: authController.authStateChanges,
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return Scaffold(body: Center(child: CircularProgressIndicator()));
+        }
+        if (snapshot.hasData) {
+          return WelcomePage();
+        }
+        return SignUpScreen();
+      },
     );
   }
 }

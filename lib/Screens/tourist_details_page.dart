@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
-import 'package:tripmate/Screens/googlemaps_screen.dart';
-import 'package:tripmate/Screens/widgets/distance.dart';
-import 'package:get/get.dart'; // For navigation
+import 'package:get/get.dart';
+import 'googlemaps_screen.dart';
+import 'widgets/distance.dart';
+import 'package:tripmate/controller/saved_location_controller.dart';
 
 class TouristDetailsPage extends StatelessWidget {
   const TouristDetailsPage({
@@ -23,12 +24,14 @@ class TouristDetailsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+    final SavedLocationController savedLocationController = Get.find<SavedLocationController>();
+
     return Scaffold(
       body: SafeArea(
         child: ListView(
           padding: const EdgeInsets.all(10),
           children: [
-            // Image section
+            // Image section with heart icon for saving location
             SizedBox(
               height: size.height * 0.38,
               width: double.maxFinite,
@@ -38,7 +41,8 @@ class TouristDetailsPage extends StatelessWidget {
                   Container(
                     decoration: BoxDecoration(
                       borderRadius: const BorderRadius.vertical(
-                          bottom: Radius.circular(20)),
+                        bottom: Radius.circular(20),
+                      ),
                       image: DecorationImage(
                         image: AssetImage(image),
                         fit: BoxFit.cover,
@@ -60,7 +64,8 @@ class TouristDetailsPage extends StatelessWidget {
                       decoration: BoxDecoration(
                         color: Colors.white.withOpacity(0.7),
                         borderRadius: const BorderRadius.horizontal(
-                            right: Radius.circular(15)),
+                          right: Radius.circular(15),
+                        ),
                       ),
                       child: Row(
                         children: [
@@ -71,11 +76,25 @@ class TouristDetailsPage extends StatelessWidget {
                             iconSize: 20,
                             icon: const Icon(Ionicons.chevron_back),
                           ),
-                          IconButton(
-                            iconSize: 20,
-                            onPressed: () {},
-                            icon: const Icon(Ionicons.heart_outline),
-                          ),
+                          Obx(() {
+                            final isSaved = savedLocationController.isLocationSaved(name);
+                            return IconButton(
+                              iconSize: 20,
+                              onPressed: () {
+                                if (isSaved) {
+                                  savedLocationController.savedLocations.removeWhere(
+                                    (item) => item['name'] == name,
+                                  );
+                                } else {
+                                  savedLocationController.addLocation(name, location, image);
+                                }
+                              },
+                              icon: Icon(
+                                isSaved ? Ionicons.heart : Ionicons.heart_outline,
+                                color: isSaved ? Colors.red : null,
+                              ),
+                            );
+                          }),
                         ],
                       ),
                     ),
@@ -114,13 +133,13 @@ class TouristDetailsPage extends StatelessWidget {
                       Ionicons.star,
                       color: Colors.yellow[800],
                       size: 15,
-                    )
+                    ),
                   ],
                 ),
               ],
             ),
             const SizedBox(height: 15),
-            // Distance and time info
+            // Distance and estimated time info
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -138,7 +157,7 @@ class TouristDetailsPage extends StatelessWidget {
                     Text(
                       "Distance from you",
                       style: Theme.of(context).textTheme.bodySmall,
-                    )
+                    ),
                   ],
                 ),
                 Column(
@@ -155,12 +174,13 @@ class TouristDetailsPage extends StatelessWidget {
                     Text(
                       "Estimated time to reach",
                       style: Theme.of(context).textTheme.bodySmall,
-                    )
+                    ),
                   ],
                 ),
               ],
             ),
             const SizedBox(height: 10),
+            // Map preview container
             Container(
               height: 180,
               width: double.maxFinite,
@@ -174,11 +194,13 @@ class TouristDetailsPage extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 15),
+            // Additional distance widget
             const Distance(),
             const SizedBox(height: 20),
+            // Join tour button
             ElevatedButton(
               onPressed: () {
-                // Navigate to the full map screen with the destination location
+                // Navigate to full map screen with destination location
                 Get.to(() => FullScreenMap(destinationLocation: location));
               },
               style: ElevatedButton.styleFrom(

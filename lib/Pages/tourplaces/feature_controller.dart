@@ -68,6 +68,7 @@ class FeatureController extends GetxController {
           'history': city['tour_places'][0]['history'],
           'city': city['name'],
           'location': city['location'],
+          'image': city['image'] ?? 'assets/images/placeholder.png', 
         });
       }
     }

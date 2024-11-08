@@ -37,14 +37,17 @@ class FullScreenMap extends StatelessWidget {
           IconButton(
             icon: Icon(Icons.calculate, color: Colors.blue.shade900),
             onPressed: () {
-              // Explicitly check and pass the `distanceInfo` as a String
-              //String distance = mapController.distanceInfo.value; 
-              //if (distance.isNotEmpty) {
-                //Get.to(() => FuelCalculatorScreen(distance: distance));
-              //} else {
-                // Handle the case where distance is not yet calculated
+              // Extract only the numeric part of the distance (first line of distanceInfo without "km")
+              String distance = mapController.distanceInfo.value.contains('\n')
+                  ? mapController.distanceInfo.value.split('\n')[0].replaceAll(RegExp(r'[^\d.]'), '')
+                  : '';
+
+              if (distance.isNotEmpty) {
+                Get.to(() => FuelCalculatorScreen(distance: distance));
+              } else {
+                // Show error if distance is not yet available
                 Get.snackbar('Error', 'Distance is not available yet!');
-              //}
+              }
             },
           ),
         ],

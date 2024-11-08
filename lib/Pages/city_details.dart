@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:tripmate/Pages/fuelcalculator.dart';
 import 'package:tripmate/Screens/googlemaps_screen.dart';
 import 'package:tripmate/controller/citydetails_controller.dart';
@@ -39,9 +38,9 @@ class CityDetailPage extends StatelessWidget {
           IconButton(
             icon: Icon(Icons.calculate, color: Colors.blue.shade900),
             onPressed: () {
-              // Pass the integer part of the distance to the FuelCalculatorScreen
-              double distance = double.tryParse(citydetailsController.distanceInfo.value) ?? 0.1;
-              Get.to(FuelCalculatorScreen(distance: distance.toStringAsFixed(0)));
+              // Only pass numeric part of distance to FuelCalculatorScreen
+              String distance = citydetailsController.distanceInfo.value.replaceAll(RegExp(r'[^\d.]'), '');
+              Get.to(() => FuelCalculatorScreen(distance: distance));
             },
           ),
         ],
@@ -91,11 +90,11 @@ class CityDetailPage extends StatelessWidget {
                   children: [
                     _buildInfoRow(
                       title: "Distance:",
-                      value: "${citydetailsController.distanceInfo.value} ",  // Show distance
+                      value: "${citydetailsController.distanceInfo.value.replaceAll(RegExp(r'[^\d.]'), '')} km",
                     ),
                     _buildInfoRow(
                       title: "Estimated Time:",
-                      value: "${citydetailsController.estimatedTime.value} ",  // Show estimated time
+                      value: "${citydetailsController.estimatedTime.value}",
                     ),
                     SizedBox(height: 10),
                   ],

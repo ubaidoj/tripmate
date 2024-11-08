@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:ionicons/ionicons.dart';
+import 'package:tripmate/Pages/contact_us.dart';
+import 'package:tripmate/Pages/dashboard_screen.dart';
 import 'package:tripmate/Pages/hotel_list.dart';
 import 'package:tripmate/Screens/widgets/customicon_buttton.dart';
 import 'package:tripmate/Screens/widgets/location_card.dart';
@@ -8,13 +10,15 @@ import 'package:tripmate/Screens/widgets/nearby_places.dart';
 import 'package:tripmate/Screens/widgets/recommended_places.dart';
 import 'package:tripmate/Screens/widgets/tourist_places.dart';
 import 'package:tripmate/Screens/widgets/map_card.dart';
+import 'package:tripmate/authentications/auth_controller.dart';
 import 'package:tripmate/authentications/profile_page.dart';
+import 'package:tripmate/authentications/signin_page.dart';
 import 'package:tripmate/controller/home_controller.dart';
-import 'package:tripmate/Pages/ticket_page.dart';
 import 'package:tripmate/Pages/saved_page.dart';
 
 class HomePage extends StatelessWidget {
   final HomeController homeController = Get.put(HomeController());
+  final AuthController authController = Get.find<AuthController>();
 
   @override
   Widget build(BuildContext context) {
@@ -22,16 +26,12 @@ class HomePage extends StatelessWidget {
       future: homeController.checkLocationPermission(),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
-          // Show loading indicator while checking permission
           return Scaffold(
-            body: Center(
-              child: CircularProgressIndicator(),
-            ),
+            body: Center(child: CircularProgressIndicator()),
           );
         }
 
         if (snapshot.hasError || (snapshot.hasData && !snapshot.data!)) {
-          // If permission is not granted, show a message or redirect
           return Scaffold(
             body: Center(
               child: Column(
@@ -40,7 +40,7 @@ class HomePage extends StatelessWidget {
                   Text("Location permission is required to access this page."),
                   ElevatedButton(
                     onPressed: () {
-                      Get.back(); // Redirect user back to the previous page
+                      Get.back();
                     },
                     child: Text("Go Back"),
                   ),
@@ -50,7 +50,6 @@ class HomePage extends StatelessWidget {
           );
         }
 
-        // If permission is granted, display the home page
         return _buildHomePageContent(context);
       },
     );
@@ -60,32 +59,30 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Colors.transparent,
-        foregroundColor: Colors.black,
+        backgroundColor: Color.fromRGBO(22, 86, 182, 1),
+        foregroundColor: Colors.white,
         leading: Builder(
           builder: (context) => IconButton(
             icon: const Icon(Icons.menu),
             onPressed: () {
-              Scaffold.of(context).openDrawer(); // Open the drawer
+              Scaffold.of(context).openDrawer();
             },
           ),
         ),
         title: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text("Good Morning"),
+            const Text("Good Morning", style: TextStyle(fontWeight: FontWeight.bold)),
             Text(
-              "Tetteh Jeron Asiedu",
-              style: Theme.of(context).textTheme.labelMedium,
+              "From Team TripMate",
+              style: Theme.of(context).textTheme.labelMedium?.copyWith(color: Colors.white),
             ),
           ],
         ),
         actions: [
           CustomIconButton(
             icon: const Icon(Ionicons.search_outline),
-            onPressed: () {
-              // Handle search button press
-            },
+            onPressed: () {},
           ),
           Padding(
             padding: const EdgeInsets.only(left: 8.0, right: 12),
@@ -100,13 +97,13 @@ class HomePage extends StatelessWidget {
       body: Obx(() {
         switch (homeController.selectedIndex.value) {
           case 0:
-            return HomeContent(); // Main home page content
+            return HomeContent();
           case 1:
-            return TicketPage(); // Navigate to TicketPage
+            return HotelListPage();
           case 2:
-            return SavedPage(); // Navigate to SavedPage
+            return SavedLocationPage();
           case 3:
-            return ProfilePage(); // Navigate to ProfilePage
+            return ProfilePage();
           default:
             return HomeContent();
         }
@@ -115,26 +112,29 @@ class HomePage extends StatelessWidget {
         return BottomNavigationBar(
           currentIndex: homeController.selectedIndex.value,
           onTap: (index) {
-            homeController.updateIndex(index); // Trigger refresh or navigation
+            homeController.updateIndex(index);
           },
           type: BottomNavigationBarType.fixed,
+          backgroundColor: Color.fromRGBO(22, 86, 182, 1),
+          selectedItemColor: Colors.white,
+          unselectedItemColor: Colors.white54,
           showSelectedLabels: false,
           showUnselectedLabels: false,
           items: const [
             BottomNavigationBarItem(
-              icon: Icon(Ionicons.home_outline),
+              icon: Icon(Ionicons.home),
               label: "Home",
             ),
             BottomNavigationBarItem(
-              icon: Icon(Ionicons.ticket_outline),
+              icon: Icon(Ionicons.bed),
               label: "Ticket",
             ),
             BottomNavigationBarItem(
-              icon: Icon(Ionicons.bookmark_outline),
+              icon: Icon(Ionicons.bookmark),
               label: "Saved",
             ),
             BottomNavigationBarItem(
-              icon: Icon(Ionicons.person_outline),
+              icon: Icon(Ionicons.person),
               label: "Profile",
             ),
           ],
@@ -154,21 +154,18 @@ class HomePage extends StatelessWidget {
             ),
             child: Text(
               'Menu',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 24,
-              ),
+              style: TextStyle(color: Colors.white, fontSize: 24),
             ),
           ),
           ListTile(
-            leading: Icon(Ionicons.grid_outline),
+            leading: Icon(Ionicons.grid),
             title: Text('DashBoard'),
             onTap: () {
-              // Get.to(() => Dashboard());
+              Get.to(() => DashboardScreen());
             },
           ),
           ListTile(
-            leading: Icon(Ionicons.home_outline),
+            leading: Icon(Ionicons.home),
             title: Text('Home'),
             onTap: () {
               homeController.updateIndex(0);
@@ -176,7 +173,7 @@ class HomePage extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: Icon(Ionicons.person_outline),
+            leading: Icon(Ionicons.person),
             title: Text('Profile'),
             onTap: () {
               homeController.updateIndex(3);
@@ -184,14 +181,14 @@ class HomePage extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: Icon(Ionicons.restaurant_outline),
+            leading: Icon(Ionicons.bed),
             title: Text('Hotel Booking'),
             onTap: () {
               Get.to(HotelListPage());
             },
           ),
           ListTile(
-            leading: Icon(Ionicons.ticket_outline),
+            leading: Icon(Ionicons.ticket),
             title: Text('Tickets'),
             onTap: () {
               homeController.updateIndex(1);
@@ -199,25 +196,31 @@ class HomePage extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: Icon(Ionicons.call_outline),
+            leading: Icon(Ionicons.call),
             title: Text('Contact Us'),
             onTap: () {
-              // Get.to(() => ContactPage());  // Example navigation
+              Get.to(() => ContactUsScreen());
             },
           ),
           ListTile(
-            leading: Icon(Ionicons.star_outline),
+            leading: Icon(Ionicons.star),
             title: Text('Rate Us'),
-            onTap: () {
-              // Add your rate us functionality
-            },
+            onTap: () {},
           ),
           ListTile(
-            leading: Icon(Ionicons.bookmark_outline),
+            leading: Icon(Ionicons.bookmark),
             title: Text('Saved Locations'),
             onTap: () {
               homeController.updateIndex(2);
               Navigator.pop(context);
+            },
+          ),
+          ListTile(
+            leading: Icon(Ionicons.log_out),
+            title: Text('Log out'),
+            onTap: () async {
+              await authController.signOut();
+              Get.offAll(() => SignInScreen());
             },
           ),
         ],
@@ -229,7 +232,7 @@ class HomePage extends StatelessWidget {
 class HomeContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Column(  // Use Column instead of Expanded to structure the widgets properly
+    return Column(
       children: [
         Expanded(
           child: ListView(
@@ -238,7 +241,7 @@ class HomeContent extends StatelessWidget {
             children: [
               const LocationCard(),
               const SizedBox(height: 15),
-              MapCard(), // Add the MapCard here
+              MapCard(),
               const SizedBox(height: 15),
               TouristPlaces(),
               const SizedBox(height: 10),
@@ -253,7 +256,7 @@ class HomeContent extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 10),
-              RecommendedPlaces(), // Display dynamic recommended places here
+              RecommendedPlaces(),
               const SizedBox(height: 10),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -267,8 +270,8 @@ class HomeContent extends StatelessWidget {
               ),
               const SizedBox(height: 10),
               SizedBox(
-                height: 250, // Adjust the height as needed to ensure the ListView inside NearbyPlaces has proper size
-                child: NearbyPlaces(), // Display nearby places here
+                height: 250,
+                child: NearbyPlaces(),
               ),
             ],
           ),

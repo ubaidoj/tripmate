@@ -1,120 +1,94 @@
-import 'dart:io';
+// File: controller/auth_controller.dart
+import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:google_sign_in/google_sign_in.dart';
-import 'package:image_picker/image_picker.dart';
-import 'package:tripmate/authentications/profile_page.dart';
-import 'package:tripmate/authentications/signin_page.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class AuthController extends GetxController {
-  // Rx variables for state management
-  var profileImage = Rx<File?>(null);
+  final firebase_auth.FirebaseAuth _firebaseAuth = firebase_auth.FirebaseAuth.instance;
+  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
-  // Text controllers for form fields
-  var firstNameController = TextEditingController();
-  var lastNameController = TextEditingController();
-  var emailController = TextEditingController();
-  var passwordController = TextEditingController();
-  var confirmPasswordController = TextEditingController();
+  var isLoading = false.obs;
+  var userName = ''.obs;
+  var profileImageUrl = ''.obs;
 
-  // Firebase user
-  User? user = FirebaseAuth.instance.currentUser;
+  firebase_auth.User? get currentUser => _firebaseAuth.currentUser;
 
-  // Method to pick an image using ImagePicker
-  Future<void> pickImage() async {
-    final ImagePicker picker = ImagePicker();
-    final pickedFile = await picker.pickImage(source: ImageSource.gallery);
-    if (pickedFile != null) {
-      profileImage.value = File(pickedFile.path);
+  Stream<firebase_auth.User?> get authStateChanges => _firebaseAuth.authStateChanges();
+
+  @override
+  void onInit() {
+    super.onInit();
+    _loadUserData();
+    _loadProfileImage();
+  }
+
+  Future<void> _loadUserData() async {
+    final user = currentUser;
+    if (user != null) {
+      final userData = await _firestore.collection('users').doc(user.uid).get();
+      if (userData.exists) {
+        userName.value = userData['name'] ?? 'User';
+      }
     }
   }
 
-  // Signup function
-  Future<void> signup() async {
+  Future<void> saveProfileImage(String imagePath) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setString('profileImageUrl', imagePath);
+    profileImageUrl.value = imagePath;
+  }
+
+  Future<void> _loadProfileImage() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    profileImageUrl.value = prefs.getString('profileImageUrl') ?? '';
+  }
+
+  Future<String?> signUp(String email, String password, String name, {String? phoneNumber, String? birthDate}) async {
     try {
-      if (passwordController.text == confirmPasswordController.text) {
-        await FirebaseAuth.instance.createUserWithEmailAndPassword(
-          email: emailController.text.trim(),
-          password: passwordController.text.trim(),
-        );
-        // Storing user data in Firestore
-        await FirebaseFirestore.instance.collection('users').doc(user?.uid).set({
-          'firstName': firstNameController.text.trim(),
-          'lastName': lastNameController.text.trim(),
-          'email': emailController.text.trim(),
+      isLoading.value = true;
+      final userCredential = await _firebaseAuth.createUserWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+
+      final user = userCredential.user;
+      if (user != null) {
+        await _firestore.collection('users').doc(user.uid).set({
+          'email': email,
+          'name': name,
+          'phoneNumber': phoneNumber ?? '',
+          'birthDate': birthDate ?? '',
+          'profileImageUrl': '',
         });
-        Get.off(ProfilePage()); // Navigate to ProfilePage
-      } else {
-        Get.snackbar('Error', 'Passwords do not match');
+        await _loadUserData();
+        isLoading.value = false;
+        return null;
       }
-    } catch (e) {
-      Get.snackbar('Error', e.toString());
+    } on firebase_auth.FirebaseAuthException catch (e) {
+      isLoading.value = false;
+      return e.message;
     }
+    isLoading.value = false;
+    return 'Sign-up failed';
   }
 
-  // Google Sign-In function
-  Future<void> signInWithGoogle() async {
+  Future<String?> signIn(String email, String password) async {
     try {
-      final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
-      if (googleUser != null) {
-        final GoogleSignInAuthentication googleAuth = await googleUser.authentication;
-        final AuthCredential credential = GoogleAuthProvider.credential(
-          accessToken: googleAuth.accessToken,
-          idToken: googleAuth.idToken,
-        );
-        await FirebaseAuth.instance.signInWithCredential(credential);
-        Get.off(ProfilePage());
-      }
-    } catch (e) {
-      Get.snackbar('Error', e.toString());
+      isLoading.value = true;
+      await _firebaseAuth.signInWithEmailAndPassword(email: email, password: password);
+      await _loadUserData();
+      isLoading.value = false;
+      return null;
+    } on firebase_auth.FirebaseAuthException catch (e) {
+      isLoading.value = false;
+      return e.message;
     }
   }
 
-  // Login function
-  Future<void> login() async {
-    try {
-      await FirebaseAuth.instance.signInWithEmailAndPassword(
-        email: emailController.text.trim(),
-        password: passwordController.text.trim(),
-      );
-      Get.off(ProfilePage());
-    } catch (e) {
-      Get.snackbar('Error', e.toString());
-    }
-  }
-
-  // Forgot password function
-  Future<void> forgotPassword() async {
-    try {
-      await FirebaseAuth.instance.sendPasswordResetEmail(
-        email: emailController.text.trim(),
-      );
-      Get.snackbar('Success', 'Password reset email sent');
-    } catch (e) {
-      Get.snackbar('Error', e.toString());
-    }
-  }
-
-  // Logout function
-  Future<void> logout() async {
-    await FirebaseAuth.instance.signOut();
-    Get.off(SigninPage());
-  }
-
-  // Update profile function
-  Future<void> updateProfile() async {
-    try {
-      user?.updateDisplayName(firstNameController.text.trim());
-      user?.updatePhotoURL(profileImage.value?.path);
-      await FirebaseFirestore.instance.collection('users').doc(user?.uid).update({
-        'firstName': firstNameController.text.trim(),
-        'lastName': lastNameController.text.trim(),
-      });
-      Get.snackbar('Success', 'Profile updated');
-    } catch (e) {
-      Get.snackbar('Error', e.toString());
-    }
+  Future<void> signOut() async {
+    await _firebaseAuth.signOut();
+    userName.value = '';
+    profileImageUrl.value = '';
   }
 }
