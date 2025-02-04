@@ -13,7 +13,7 @@ class _SignInScreenState extends State<SignInScreen> {
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
   final AuthController authController = Get.put(AuthController());
-  bool _showPassword = false;
+  bool _showPassword = false; 
 
   @override
   Widget build(BuildContext context) {

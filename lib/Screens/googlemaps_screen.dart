@@ -60,7 +60,7 @@ class FullScreenMap extends StatelessWidget {
                   GoogleMap(
                     onMapCreated: mapController.onMapCreated,
                     initialCameraPosition: CameraPosition(
-                      target: mapController.currentLocation.value, // Access the value of Rx<LatLng>
+                      target: mapController.currentLocation.value, 
                       zoom: 14.0,
                     ),
                     myLocationEnabled: true,
