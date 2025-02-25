@@ -9,7 +9,7 @@
 
 
     <application
-        android:label="tripmate"
+        android:label="TripMate"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
